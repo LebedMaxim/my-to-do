@@ -1,0 +1,28 @@
+.task {
+  list-style-type: none;
+  position: relative;
+  margin: 2px;
+  padding: 0.2em 0.2em 0.2em 2em;
+  width: calc(100% - 3em);
+  cursor: default;
+}
+
+.done {
+  text-decoration: line-through black 1px;
+  color: rgb(187, 187, 187);
+}
+
+.done::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-color: #009933;
+  border-style: solid;
+  border-width: 0 0.2em 0.15em 0;
+  height: 0.7em;
+  top: 1.3em;
+  left: 0.6em;
+  margin-top: -1em;
+  transform: rotate(45deg);
+  width: 0.35em;
+}
