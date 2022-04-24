@@ -1,0 +1,151 @@
+button {
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 0;
+}
+
+.wrapper {
+  margin: auto;
+  width: 500px;
+}
+
+.wrapper h1 {
+  color: brown;
+  text-align: center;
+}
+
+input {
+  border: 0;
+  outline: 0;
+}
+
+/*.done {
+  text-decoration: line-through black 1px;
+  color: rgb(187, 187, 187);
+}*/
+
+.start-container, .start {
+  width: 100%;
+}
+
+.start-container {
+  position: relative;
+  padding-left: 35px;
+  border-bottom: 1px solid rgb(212, 212, 212);
+  /* height: 20px; */
+}
+
+.start {
+  padding: 5px 0;
+  color: rgb(187, 187, 187);
+}
+
+.cover {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  /* overflow-y: scroll;
+  max-height: calc(100vh - 90px); */
+  box-shadow: 0 1px 7px 1px grey;
+  background: white;
+}
+
+.cover ul {
+  overflow-y: scroll;
+  max-height: calc(100vh - 120px);
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+button.deleteAim, .deleteAim:before, .deleteAim:after {
+  position: absolute;
+  width: 11px;
+}
+
+button.deleteAim {
+  cursor: pointer;
+  top: 8px;
+  left: 95%;
+  height: 11px;
+  padding-right: 11px;
+}
+
+.deleteAim:before, .deleteAim:after {
+  content: "";
+  height: 1px;
+  background: gray;
+}
+
+.deleteAim:before {
+  transform: rotate(45deg);
+}
+
+.deleteAim:after {
+  transform: rotate(-45deg);
+}
+
+.startButton {
+  position: absolute;
+  top: 1.6em;
+  left: 0.75em;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3c?xml version='1.0' encoding='iso-8859-1'?%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512.011 512.011' style='enable-background:new 0 0 512.011 512.011;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M505.755,123.592c-8.341-8.341-21.824-8.341-30.165,0L256.005,343.176L36.421,123.592c-8.341-8.341-21.824-8.341-30.165,0 s-8.341,21.824,0,30.165l234.667,234.667c4.16,4.16,9.621,6.251,15.083,6.251c5.462,0,10.923-2.091,15.083-6.251l234.667-234.667 C514.096,145.416,514.096,131.933,505.755,123.592z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+  height: 1em;
+  width: 1em;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  margin-top: -1em;
+}
+
+/*.done::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-color: #009933;
+  border-style: solid;
+  border-width: 0 0.2em 0.15em 0;
+  height: 0.7em;
+  top: 1.3em;
+  left: 0.6em;
+  margin-top: -1em;
+  transform: rotate(45deg);
+  width: 0.35em;
+}*/
+
+footer, footer * {
+  color: rgb(185, 185, 185);
+}
+
+.all:hover, .active:hover, .completed:hover {
+  color: white;
+}
+
+.chosen {
+  border: 1px solid rgb(185, 185, 185);
+}
+
+footer {
+  display: flex;
+  flex: 100%;
+  justify-content: space-between;
+  border-top: 1px solid rgb(212, 212, 212);
+}
+
+.tasks {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.tasks::-webkit-scrollbar {
+  background-color: white;
+}
+
+.tasks::-webkit-scrollbar-thumb {
+  background: rgb(211, 211, 211);
+}
