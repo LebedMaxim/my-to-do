@@ -1,1 +1,5 @@
-<li class="task" (click)="isDone($event)">{{ task.text }}</li>
+<li class="task" ><!--{{ task.text }}-->
+  <input type="text" class="change" (click)="isDone($event)" [(ngModel)]="task.text" readonly>
+  <button class="deleteAim" (click)="deleteAim()"></button>
+  <button class="changeText" (click)="changeText()">🖊</button>
+</li>

@@ -1,3 +1,28 @@
+button {
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 0;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  cursor: context-menu;
+  font-family: Roboto, sans-serif;
+}
+
+.change {
+  color: grey;
+  width: 88%;
+  user-select: none;
+}
+
 .task {
   list-style-type: none;
   position: relative;
@@ -25,4 +50,45 @@
   margin-top: -1em;
   transform: rotate(45deg);
   width: 0.35em;
+}
+
+.deleteAim, .deleteAim:before, .deleteAim:after, .changeText {
+  position: absolute;
+}
+
+.deleteAim:before, .deleteAim:after {
+  width: 12px;
+  height: 12px;
+}
+
+.deleteAim, .changeText {
+  cursor: pointer;
+  /*top: 8px;*/
+  padding-right: 11px;
+  width: 15px;
+  height: 15px;
+}
+
+.deleteAim {
+  left: 95%;
+}
+
+.changeText {
+  left: 90%;
+  color: grey;
+  font-size: 13px;
+}
+
+.deleteAim:before, .deleteAim:after {
+  content: '';
+  height: 1px;
+  background: grey;
+}
+
+.deleteAim:before {
+  transform: rotate(45deg);
+}
+
+.deleteAim:after {
+  transform: rotate(-45deg);
 }

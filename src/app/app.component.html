@@ -3,7 +3,8 @@
   <div class="cover">
     <div class="start-container">
       <input type="button" class="startButton">
-      <input type="text" class="start" placeholder="What needs to be done?">
+      <input type="text" class="start" placeholder="What needs to be done?"
+      (change)="addArrElem($event)">
     </div>
     <ul class="tasks">
       <app-task *ngFor="let iterTask of tasks" [task]="iterTask"></app-task>
