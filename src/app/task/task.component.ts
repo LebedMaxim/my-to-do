@@ -9,14 +9,27 @@ import {Task} from '../app.component';
 export class TaskComponent implements OnInit {
   @Input() task: Task = { text: ''};
 
-  text = 'Learn Angular'
-  done = false
+  /*text = 'Learn Angular'*/
   ngOnInit() {}
 
+
   private classList: any;
+
+  done = false
   isDone(event: any) {
     this.done = !this.done
-    this.text = 'Gh'
     event.target.classList.toggle('done')
+  }
+
+  deleteAim(){
+    /*this.task.text = ''*/
+    console.log(this.task)
+
+    /*this.task.splice(0, 1)*/
+  }
+
+  changeText(){
+    this.task.text = "Изменено!"
+    /*this.task.addAttribute("readonly")*/
   }
 }

@@ -18,4 +18,9 @@ export class AppComponent {
     {text: 'Learn JavaScript'}
   ]
 
+  addArrElem(event: any) {
+    this.tasks.push({text: event.target.value})
+    event.target.value = ""
+    console.log(this.tasks)
+  }
 }
