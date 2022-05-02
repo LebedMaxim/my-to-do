@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 export interface Task {
+  /*index: number*/
   text: string
 }
 
@@ -19,8 +20,12 @@ export class AppComponent {
   ]
 
   addArrElem(event: any) {
-    this.tasks.push({text: event.target.value})
+    this.tasks.push({ /*index: event.target.index,*/ text: event.target.value})
     event.target.value = ""
     console.log(this.tasks)
+  }
+
+  deleteAim(newItem: number) {
+    this.tasks.splice(newItem, 1);/*{text: newItem}*/
   }
 }

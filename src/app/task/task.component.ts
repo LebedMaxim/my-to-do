@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {Task} from '../app.component';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -7,13 +8,11 @@ import {Task} from '../app.component';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
-  @Input() task: Task = { text: ''};
 
-  /*text = 'Learn Angular'*/
-  ngOnInit() {}
+  @Input() task: Task = { text: ''}
+  /*@Input() index: number | undefined*/
 
-
-  private classList: any;
+  private classList: any
 
   done = false
   isDone(event: any) {
@@ -21,15 +20,15 @@ export class TaskComponent implements OnInit {
     event.target.classList.toggle('done')
   }
 
-  deleteAim(){
-    /*this.task.text = ''*/
-    console.log(this.task)
-
-    /*this.task.splice(0, 1)*/
-  }
-
   changeText(){
     this.task.text = "Изменено!"
-    /*this.task.addAttribute("readonly")*/
+    /*this.task.toggleAttribute("readonly")*/
   }
+
+  @Output() delItemEvent = new EventEmitter<any>();
+  deleteAim() {
+    this.delItemEvent.emit(this.task);
+  }
+
+  ngOnInit() {}
 }

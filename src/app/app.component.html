@@ -7,7 +7,9 @@
       (change)="addArrElem($event)">
     </div>
     <ul class="tasks">
-      <app-task *ngFor="let iterTask of tasks" [task]="iterTask"></app-task>
+      <app-task (delItemEvent)="deleteAim(idx)"
+                *ngFor="let iterTask of tasks; let idx=index"
+                [task]="iterTask"></app-task><!--[index]="idx + 1"-->
     </ul>
     <footer class="footer">
       <span class="items-left">0 items left</span>
