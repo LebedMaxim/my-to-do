@@ -20,9 +20,9 @@ export class TaskComponent implements OnInit {
     event.target.classList.toggle('done')
   }
 
+  readonly = true
   changeText(){
-    this.task.text = "Изменено!"
-    /*this.task.toggleAttribute("readonly")*/
+    this.readonly = !this.readonly
   }
 
   @Output() delItemEvent = new EventEmitter<any>();
@@ -31,4 +31,6 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+
 }
