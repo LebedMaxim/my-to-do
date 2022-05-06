@@ -121,6 +121,10 @@ button.deleteAim {
   width: 0.35em;
 }*/
 
+.all, .active, .completed {
+  margin: 0 5px;
+}
+
 .all:hover, .active:hover, .completed:hover {
   color: white;
 }
