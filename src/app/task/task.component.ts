@@ -9,15 +9,14 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-  @Input() task: Task = { text: ''}
-  /*@Input() index: number | undefined*/
+  @Input() task: Task = { text: '', done: false}
 
   private classList: any
 
-  done = false
   isDone(event: any) {
-    this.done = !this.done
+    this.task.done = !this.task.done
     event.target.classList.toggle('done')
+    console.log(this.task.done)
   }
 
   readonly = true
@@ -31,6 +30,4 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {}
-
-
 }

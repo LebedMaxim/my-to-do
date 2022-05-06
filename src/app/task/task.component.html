@@ -1,8 +1,7 @@
 <li class="task">
   <input [readonly]="readonly" type="text" class="change"
          (click)="isDone($event)"
-         [(ngModel)]="task.text" #myInput>
-  <button class="deleteAim" (click)="deleteAim()"></button><!--newItem.value-->
+         [(ngModel)]="task.text">
+  <button class="deleteAim" (click)="deleteAim()"></button>
   <button class="changeText" (click)="changeText()">🖊</button>
-  <!--<input type="text" #newItem>-->
 </li>
