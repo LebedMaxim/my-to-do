@@ -14,7 +14,7 @@ export interface Task {
 export class AppComponent {
   title: 'my-to-do' | undefined
   tasks: Task[] = [
-    {text: 'Learn Angular', done: false},
+    {text: 'Learn Angular', done: true},
     {text: 'Learn CSS', done: false},
     {text: 'Learn JavaScript', done: false}
   ]
@@ -22,7 +22,7 @@ export class AppComponent {
   addArrElem(event: any) {
     this.tasks.push({text: event.target.value, done: false})
     event.target.value = ""
-    console.log(this.tasks)
+    /*console.log(this.tasks)*/
   }
 
   deleteAim(newItem: number) {

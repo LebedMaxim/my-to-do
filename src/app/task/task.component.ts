@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {Task} from '../app.component';
-import { Output, EventEmitter } from '@angular/core';
+import {Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -9,25 +9,25 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-  @Input() task: Task = { text: '', done: false}
+  @Input() task: Task = {text: '', done: false}
 
-  private classList: any
-
-  isDone(event: any) {
+  isDone() {
     this.task.done = !this.task.done
-    event.target.classList.toggle('done')
-    console.log(this.task.done)
+    /*console.log(this.task.done)*/
   }
 
   readonly = true
-  changeText(){
+
+  changeText() {
     this.readonly = !this.readonly
   }
 
   @Output() delItemEvent = new EventEmitter<any>();
+
   deleteAim() {
     this.delItemEvent.emit(this.task);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 }
