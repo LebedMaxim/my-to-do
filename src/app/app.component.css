@@ -121,16 +121,36 @@ button.deleteAim {
   width: 0.35em;
 }*/
 
-.all, .active, .completed {
-  margin: 0 5px;
+.sort {
+  display: inline-block;
 }
 
-.all:hover, .active:hover, .completed:hover {
+.sort input[type=radio] {
+  display: none;
+}
+
+.sort label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0 5px;
+  user-select: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+}
+
+.sort input[type=radio]:checked + label {
+  border-color: rgb(187, 187, 187);
+}
+
+.sort label:hover, .clear-completed:hover {
   color: white;
+  border-color: rgb(187, 187, 187);
+  background-color: rgb(187, 187, 187);
 }
 
-.chosen {
-  border: 1px solid rgb(185, 185, 185);
+.sort label:active, .clear-completed:active {
+  background-color: rgb(161, 161, 161);;
 }
 
 footer {
@@ -138,6 +158,11 @@ footer {
   flex: 100%;
   justify-content: space-between;
   border-top: 1px solid rgb(212, 212, 212);
+}
+
+footer * {
+  font-size: small;
+  font-family: Roboto, sans-serif;
 }
 
 .tasks {
@@ -150,5 +175,5 @@ footer {
 }
 
 .tasks::-webkit-scrollbar-thumb {
-  background: rgb(211, 211, 211);
+  background: rgb(212, 212, 212);
 }
