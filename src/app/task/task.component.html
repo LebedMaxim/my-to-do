@@ -1,8 +1,7 @@
-<li class="task">
+<li class="task" [ngClass]="{done: task.done}">
   <input [readonly]="readonly" type="text" class="change"
          (click)="isDone()"
-         [(ngModel)]="task.text" [ngClass]="{
-           done: task.done}">
+         [(ngModel)]="task.text" [ngClass]="{done: task.done}">
   <button class="deleteAim" (click)="deleteAim()"></button>
   <button class="changeText" (click)="changeText()">🖊</button>
 </li>
