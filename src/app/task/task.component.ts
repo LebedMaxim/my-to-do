@@ -10,10 +10,11 @@ import {Output, EventEmitter} from '@angular/core';
 export class TaskComponent implements OnInit {
 
   @Input() task: Task = {text: '', done: false}
+  @Input() sorting: any
 
   isDone() {
     this.task.done = !this.task.done
-    /*console.log(this.task.done)*/
+    console.log(this.sorting)
   }
 
   readonly = true
@@ -29,5 +30,6 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {
+/*    console.log(this.form.value.sort)*/
   }
 }
