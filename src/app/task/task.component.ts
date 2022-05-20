@@ -13,13 +13,16 @@ export class TaskComponent implements OnInit {
   @Input() sorting: any
 
   isDone() {
-    this.task.done = !this.task.done
+    if (this.readonly) this.task.done = !this.task.done
   }
 
   readonly = true
 
-  changeText() {
-    this.readonly = !this.readonly
+  changeText(event: any) {
+    if (!this.task.done) {
+      this.readonly = false
+      event.focus()
+    }
   }
 
   @Output() delItemEvent = new EventEmitter<any>();

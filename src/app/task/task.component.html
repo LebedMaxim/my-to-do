@@ -3,7 +3,9 @@
     [ngClass]="{done: task.done}">
   <input [readonly]="readonly" type="text" class="change"
          (click)="isDone()"
-         [(ngModel)]="task.text" [ngClass]="{done: task.done}">
+         [(ngModel)]="task.text"
+         [ngClass]="{done: task.done}"
+         (focusout)="this.readonly = true" #input>
   <button class="deleteAim" (click)="deleteAim()"></button>
-  <button class="changeText" (click)="changeText()">🖊</button>
+  <button class="changeText" (click)="changeText(input)">🖊</button>
 </li>
