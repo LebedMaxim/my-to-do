@@ -36,4 +36,12 @@ export class AppComponent {
   form = new FormGroup({
     sort: new FormControl('All')
   })
+
+  clearCompleted() {
+    this.tasks.map((item, index) => {
+      if (item.done) {
+        this.tasks.splice(index, 1)
+      }
+    })
+  }
 }
