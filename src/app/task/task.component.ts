@@ -14,7 +14,6 @@ export class TaskComponent implements OnInit {
 
   isDone() {
     this.task.done = !this.task.done
-    console.log(this.sorting)
   }
 
   readonly = true
@@ -30,6 +29,11 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {
-/*    console.log(this.form.value.sort)*/
+  }
+
+  detectSorting(e: string): boolean {
+    return e === 'All'
+      || e === 'Active' && !this.task.done
+      || e === 'Completed' && this.task.done
   }
 }

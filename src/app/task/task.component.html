@@ -1,9 +1,9 @@
 <li class="task"
-    *ngIf="this.task.done"
+    *ngIf="detectSorting(sorting)"
     [ngClass]="{done: task.done}">
   <input [readonly]="readonly" type="text" class="change"
          (click)="isDone()"
          [(ngModel)]="task.text" [ngClass]="{done: task.done}">
   <button class="deleteAim" (click)="deleteAim()"></button>
   <button class="changeText" (click)="changeText()">🖊</button>
-</li><!-- && this.task.done-->
+</li>
