@@ -1,4 +1,4 @@
-import {Component/*, ViewChild*/} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 
 export interface Task {
@@ -12,16 +12,14 @@ export interface Task {
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: 'my-to-do' | undefined
-  tasks: Task[] = [
-    {text: 'Learn Angular', done: true},
-    {text: 'Learn CSS', done: false},
-    {text: 'Learn JavaScript', done: false}
-  ]
+
+  tasks: Task[] = JSON.parse(localStorage.getItem('tasks') || '[{"text": "Добавьте цель!"}]')
 
   addArrElem(event: any) {
     this.tasks.push({text: event.target.value, done: false})
+    localStorage.setItem('tasks', JSON.stringify(this.tasks))
     event.target.value = ""
   }
 
@@ -43,5 +41,10 @@ export class AppComponent {
         this.tasks.splice(index, 1)
       }
     })
+  }
+
+  ngOnInit() {
+    console.log(localStorage)
+    /*localStorage.clear()*/
   }
 }
