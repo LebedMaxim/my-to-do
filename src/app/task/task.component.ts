@@ -7,6 +7,7 @@ import {Output, EventEmitter} from '@angular/core';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
+
 export class TaskComponent implements OnInit {
 
   @Input() task: Task = {text: '', done: false}
@@ -14,6 +15,7 @@ export class TaskComponent implements OnInit {
 
   isDone() {
     if (this.readonly) this.task.done = !this.task.done
+    this.updateLocalStorageTasks.emit();
   }
 
   readonly = true
@@ -26,6 +28,7 @@ export class TaskComponent implements OnInit {
   }
 
   @Output() delItemEvent = new EventEmitter<any>();
+  @Output() updateLocalStorageTasks = new EventEmitter<any>();
 
   deleteAim() {
     this.delItemEvent.emit(this.task);

@@ -9,7 +9,8 @@
     <ul class="tasks">
       <app-task *ngFor="let iterTask of tasks; index as idx"
                 [task]="iterTask" [sorting]="form.value.sort"
-                (delItemEvent)="deleteAim(idx)"></app-task>
+                (delItemEvent)="deleteAim(idx)"
+                (updateLocalStorageTasks)="updateLocalStorageTasks()"></app-task>
     </ul>
     <footer class="footer">
       <span class="items-left">{{allTasksCounter()}} items left</span>
