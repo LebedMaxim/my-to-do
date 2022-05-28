@@ -17,14 +17,19 @@ export class AppComponent implements OnInit {
 
   tasks: Task[] = JSON.parse(localStorage.getItem('tasks') || '[{"text": "Добавьте цель!"}]')
 
+  updateLocalStorageTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks))
+  }
+
   addArrElem(event: any) {
     this.tasks.push({text: event.target.value, done: false})
-    localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    this.updateLocalStorageTasks()
     event.target.value = ""
   }
 
   deleteAim(newItem: number) {
     this.tasks.splice(newItem, 1);
+    this.updateLocalStorageTasks()
   }
 
   allTasksCounter() {
@@ -36,11 +41,13 @@ export class AppComponent implements OnInit {
   })
 
   clearCompleted() {
-    this.tasks.map((item, index) => {
-      if (item.done) {
-        this.tasks.splice(index, 1)
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (this.tasks[i].done) {
+        this.tasks.splice(i, 1)
+        i = i - 1
       }
-    })
+    }
+    this.updateLocalStorageTasks()
   }
 
   ngOnInit() {
