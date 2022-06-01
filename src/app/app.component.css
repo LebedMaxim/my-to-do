@@ -7,6 +7,7 @@ button {
   cursor: pointer;
   color: #fff;
   padding: 0;
+  background-color: white;
 }
 
 input {
@@ -22,12 +23,8 @@ input {
 .wrapper h1 {
   color: brown;
   text-align: center;
+  font-weight: normal;
 }
-
-/*.done {
-  text-decoration: line-through black 1px;
-  color: rgb(187, 187, 187);
-}*/
 
 .start-container, .start {
   width: 100%;
@@ -37,11 +34,14 @@ input {
   position: relative;
   padding-left: 35px;
   border-bottom: 1px solid rgb(212, 212, 212);
-  /* height: 20px; */
 }
 
-.start, footer, footer * {
+.start, .start::placeholder, footer, footer * {
   color: rgb(187, 187, 187);
+}
+
+.start::placeholder {
+  opacity: 0.7;
 }
 
 .start {
@@ -52,8 +52,6 @@ input {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  /* overflow-y: scroll;
-  max-height: calc(100vh - 90px); */
   box-shadow: 0 1px 7px 1px grey;
   background: white;
 }
@@ -103,23 +101,9 @@ button.deleteAim {
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: contain;
+  background-color: white;
   margin-top: -1em;
 }
-
-/*.done::before {
-  content: '';
-  display: block;
-  position: absolute;
-  border-color: #009933;
-  border-style: solid;
-  border-width: 0 0.2em 0.15em 0;
-  height: 0.7em;
-  top: 1.3em;
-  left: 0.6em;
-  margin-top: -1em;
-  transform: rotate(45deg);
-  width: 0.35em;
-}*/
 
 .sort {
   display: inline-block;
@@ -133,10 +117,7 @@ button.deleteAim {
   display: inline-block;
   cursor: pointer;
   padding: 0 5px;
-  user-select: none;
-  border-width: 1px;
-  border-style: solid;
-  border-color: white;
+  border: 1px solid white;
 }
 
 .sort input[type=radio]:checked + label {
@@ -147,6 +128,18 @@ button.deleteAim {
   color: white;
   border-color: rgb(187, 187, 187);
   background-color: rgb(187, 187, 187);
+}
+
+.startButton:hover, .startButton:active {
+  filter: brightness(1) invert(1);
+}
+
+.startButton:hover {
+  background-color: rgb(64, 64, 64);
+}
+
+.startButton:active {
+  background-color: rgb(120, 120, 120);
 }
 
 .sort label:active, .clear-completed:active {
@@ -172,8 +165,19 @@ footer * {
 
 .tasks::-webkit-scrollbar {
   background-color: white;
+  width: 4px;
 }
 
 .tasks::-webkit-scrollbar-thumb {
   background: rgb(212, 212, 212);
+}
+
+.items-left, .clear-completed {
+  padding: 0 5px;
+}
+
+@media screen and (max-width: 515px) {
+  .wrapper {
+    width: 100%;
+  }
 }
