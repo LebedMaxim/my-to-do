@@ -15,7 +15,8 @@ export interface Task {
 export class AppComponent implements OnInit {
   title: 'my-to-do' | undefined
 
-  tasks: Task[] = JSON.parse(localStorage.getItem('tasks') || '[{"text": "Добавьте цель!"}]')
+  tasks: Task[] = JSON.parse(localStorage.getItem('tasks') ||
+    '[{"text": "Make a demo", "done": "true"}, {"text": "Learn Angular"}]')
 
   updateLocalStorageTasks() {
     localStorage.setItem('tasks', JSON.stringify(this.tasks))
