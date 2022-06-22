@@ -42,4 +42,9 @@ export class TaskComponent implements OnInit {
       || e === 'Active' && !this.task.done
       || e === 'Completed' && this.task.done
   }
+
+  finishEditing() {
+    this.readonly = true;
+    this.updateLocalStorageTasks.emit();
+  }
 }

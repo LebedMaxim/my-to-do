@@ -5,7 +5,8 @@
          (click)="isDone()"
          [(ngModel)]="task.text"
          [ngClass]="{done: task.done}"
-         (focusout)="this.readonly = true; this.updateLocalStorageTasks.emit();" #input>
+         (focusout)="finishEditing()"
+         (keyup.enter)="finishEditing()" #input>
   <button class="deleteAim" (click)="deleteAim()"></button>
   <button class="changeText" (click)="changeText(input)">🖊</button>
 </li>
