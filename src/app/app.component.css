@@ -21,9 +21,9 @@ input {
 }
 
 .wrapper h1 {
-  color: brown;
+  color: #0093ff;
   text-align: center;
-  font-weight: normal;
+  font-weight: bolder;
 }
 
 .start-container, .start {
@@ -113,21 +113,36 @@ button.deleteAim {
   display: none;
 }
 
+.sort label, button.clear-completed {
+  color: #0093ff;
+  border: 1px solid #0093ff;
+  border-radius: 7px;
+}
+
+.items-left, .clear-completed, .sort label {
+  padding: 0 5px;
+  margin: 3px;
+}
+
 .sort label {
   display: inline-block;
   cursor: pointer;
-  padding: 0 5px;
-  border: 1px solid white;
 }
 
 .sort input[type=radio]:checked + label {
-  border-color: rgb(187, 187, 187);
+  color: white;
+  border-color: #0093ff;
+  background-color: #0093ff;
 }
 
-.sort label:hover, .clear-completed:hover {
+.sort label:hover, .clear-completed:hover, .sort input[type=radio]:checked + label:hover {
   color: white;
-  border-color: rgb(187, 187, 187);
-  background-color: rgb(187, 187, 187);
+  border-color: #61b9ff;
+  background-color: #61b9ff;
+}
+
+.sort label:active, .clear-completed:active {
+  background-color: #006dbd;
 }
 
 .startButton:hover, .startButton:active {
@@ -140,10 +155,6 @@ button.deleteAim {
 
 .startButton:active {
   background-color: rgb(120, 120, 120);
-}
-
-.sort label:active, .clear-completed:active {
-  background-color: rgb(161, 161, 161);;
 }
 
 footer {
@@ -172,9 +183,9 @@ footer * {
   background: rgb(212, 212, 212);
 }
 
-.items-left, .clear-completed {
+/*.items-left, .clear-completed, .sort label {
   padding: 0 5px;
-}
+}*/
 
 @media screen and (max-width: 515px) {
   .wrapper {
