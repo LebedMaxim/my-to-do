@@ -94,7 +94,6 @@ input {
   transform: rotate(-45deg);
 }
 
-
 .changeText:hover, .deleteAim:hover {
   color: white;
   background-color: rgb(187, 187, 187);
