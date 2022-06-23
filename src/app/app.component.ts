@@ -22,10 +22,11 @@ export class AppComponent implements OnInit {
     localStorage.setItem('tasks', JSON.stringify(this.tasks))
   }
 
-  addArrElem(event: any) {
-    this.tasks.push({text: event.target.value, done: false})
+  addArrElem(start: HTMLInputElement) {
+    if (start.value == "") return
+    this.tasks.push({text: start.value, done: false})
     this.updateLocalStorageTasks()
-    event.target.value = ""
+    start.value = ""
   }
 
   deleteAim(newItem: number) {

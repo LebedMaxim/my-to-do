@@ -2,9 +2,10 @@
   <h1>To-do list</h1>
   <div class="cover">
     <div class="start-container">
-      <input type="button" class="startButton">
+      <input type="button" class="startButton"
+             (click)="addArrElem(start)">
       <input type="text" class="start" placeholder="What needs to be done?"
-             (change)="addArrElem($event)">
+             (keyup.enter)="addArrElem(start)" #start>
     </div>
     <ul class="tasks">
       <app-task *ngFor="let iterTask of tasks; index as idx"
@@ -31,7 +32,7 @@
           <label for="completed">Completed</label>
         </div>
       </div>
-      <button class="clear-completed" (click)="clearCompleted()">&#10006; Clear completed</button>
+      <button class="clear-completed" (click)="clearCompleted()">✖ Clear completed</button>
     </footer>
   </div>
 </section>
