@@ -91,18 +91,17 @@ button.deleteAim {
   transform: rotate(-45deg);
 }
 
-.startButton {
+button.startButton {
   position: absolute;
   top: 1.6em;
-  left: 0.75em;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3c?xml version='1.0' encoding='iso-8859-1'?%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512.011 512.011' style='enable-background:new 0 0 512.011 512.011;' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath d='M505.755,123.592c-8.341-8.341-21.824-8.341-30.165,0L256.005,343.176L36.421,123.592c-8.341-8.341-21.824-8.341-30.165,0 s-8.341,21.824,0,30.165l234.667,234.667c4.16,4.16,9.621,6.251,15.083,6.251c5.462,0,10.923-2.091,15.083-6.251l234.667-234.667 C514.096,145.416,514.096,131.933,505.755,123.592z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
-  height: 1em;
-  width: 1em;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: contain;
-  background-color: white;
+  left: 1em;
+  height: 1.6em;
+  width: 1.6em;
+  background-color: #0093ff;
+  color: white;
   margin-top: -1em;
+  padding: 0;
+  font-size: 10px;
 }
 
 .sort {
@@ -113,7 +112,7 @@ button.deleteAim {
   display: none;
 }
 
-.sort label, button.clear-completed {
+.sort label, button.clear-completed, .startButton {
   color: #0093ff;
   border: 1px solid #0093ff;
   border-radius: 7px;
@@ -141,20 +140,12 @@ button.deleteAim {
   background-color: #61b9ff;
 }
 
-.sort label:active, .clear-completed:active {
-  background-color: #006dbd;
-}
-
-.startButton:hover, .startButton:active {
-  filter: brightness(1) invert(1);
-}
-
 .startButton:hover {
-  background-color: rgb(64, 64, 64);
+  background-color: #61b9ff;
 }
 
-.startButton:active {
-  background-color: rgb(120, 120, 120);
+.sort label:active, .clear-completed:active, .startButton:active {
+  background-color: #006dbd;
 }
 
 footer {
