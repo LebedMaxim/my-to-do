@@ -165,8 +165,9 @@ footer {
 }
 
 footer * {
-  font-size: small;
+  font-size: 12px;
   font-family: Roboto, sans-serif;
+  align-self: center;
 }
 
 .tasks {
@@ -182,10 +183,6 @@ footer * {
 .tasks::-webkit-scrollbar-thumb {
   background: rgb(212, 212, 212);
 }
-
-/*.items-left, .clear-completed, .sort label {
-  padding: 0 5px;
-}*/
 
 @media screen and (max-width: 515px) {
   .wrapper {
