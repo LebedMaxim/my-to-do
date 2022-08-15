@@ -1,8 +1,9 @@
 <li class="task"
-    *ngIf="detectSorting(sorting)"
-    [ngClass]="{done: task.done}">
+    *ngIf="detectSorting(sorting)">
+  <button class="doneButton"
+          [ngClass]="{unpressedDoneButton: !task.done}"
+          (click)="isDone()"></button>
   <input [readonly]="readonly" type="text" class="change"
-         (click)="isDone()"
          [(ngModel)]="task.text"
          [ngClass]="{done: task.done}"
          (focusout)="finishEditing()"

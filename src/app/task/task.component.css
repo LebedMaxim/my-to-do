@@ -27,8 +27,8 @@ input {
   list-style-type: none;
   position: relative;
   margin: 2px;
-  padding: 0.2em 0.2em 0.2em 2em;
-  width: calc(100% - 3em);
+  padding: 0.2em 0.2em 0.2em 1.2em;
+  width: calc(100% - 2em);
   cursor: default;
 }
 
@@ -37,22 +37,7 @@ input {
   color: rgb(187, 187, 187);
 }
 
-.done::before {
-  content: '';
-  display: block;
-  position: absolute;
-  border-color: #009933;
-  border-style: solid;
-  border-width: 0 0.2em 0.15em 0;
-  height: 0.7em;
-  top: 1.3em;
-  left: 0.6em;
-  margin-top: -1em;
-  transform: rotate(45deg);
-  width: 0.35em;
-}
-
-.deleteAim, .deleteAim:before, .deleteAim:after, .changeText {
+.deleteAim, .deleteAim:before, .deleteAim:after, .changeText, .doneButton:before {
   position: absolute;
 }
 
@@ -61,16 +46,21 @@ input {
   height: 12px;
 }
 
-.deleteAim, .changeText {
+.deleteAim, .changeText, .doneButton {
   cursor: pointer;
-  padding-right: 11px;
   width: 15px;
   height: 15px;
   border: 1px solid white;
 }
 
+.doneButton {
+  padding: 15px 0 0 3px;
+  margin-right: 5px;
+}
+
 .deleteAim {
   left: 95%;
+  padding-right: 11px;
 }
 
 .changeText {
@@ -86,7 +76,7 @@ input {
   background: grey;
 }
 
-.deleteAim:before {
+.deleteAim:before, .doneButton:before {
   transform: rotate(45deg);
 }
 
@@ -100,6 +90,30 @@ input {
   border: 1px solid rgb(187, 187, 187);
 }
 
+.doneButton::before {
+  content: '';
+  display: block;
+  border-color: #009933;
+  border-style: solid;
+  border-width: 0 0.2em 0.15em 0;
+  height: 0.7em;
+  width: 0.35em;
+  margin-top: -1em;
+}
+
+.unpressedDoneButton::before {
+  border-color: rgb(187, 187, 187);
+}
+
+.doneButton:hover:before {
+  border-color: white;
+}
+
+.doneButton:hover {
+  background-color: #009933;
+  border: 1px solid #009933;
+}
+
 .deleteAim:hover:before, .deleteAim:hover:after {
   background-color: white;
 }
@@ -107,4 +121,3 @@ input {
 .changeText:active, .deleteAim:active {
   background-color: rgb(161, 161, 161);;
 }
-
