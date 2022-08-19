@@ -4,6 +4,7 @@ import {FormGroup, FormControl} from '@angular/forms';
 export interface Task {
   text: string
   done: boolean
+  subTasks: Array<any>
 }
 
 @Component({
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
   title: 'my-to-do' | undefined
 
   tasks: Task[] = JSON.parse(localStorage.getItem('tasks') ||
-    '[{"text": "Make a demo", "done": "true"}, {"text": "Learn Angular"}]')
+    '[{"text": "Make a demo", "done": "true"}, ' +
+    '{"text": "Learn Angular", "subTasks": [{"text": "Learn RxJS"}, {"text": "Learn lifecycle hooks"}]}]')
 
   updateLocalStorageTasks() {
     localStorage.setItem('tasks', JSON.stringify(this.tasks))
@@ -24,7 +26,7 @@ export class AppComponent implements OnInit {
 
   addArrElem(start: HTMLInputElement) {
     if (start.value == "") return
-    this.tasks.push({text: start.value, done: false})
+    this.tasks.push({text: start.value, done: false, subTasks: []})
     this.updateLocalStorageTasks()
     start.value = ""
   }
@@ -53,7 +55,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(localStorage)
+    console.log(localStorage.getItem("tasks"))
     /*localStorage.clear()*/
   }
 }

@@ -3,7 +3,8 @@
   <button class="doneButton"
           [ngClass]="{unpressedDoneButton: !task.done}"
           (click)="isDone()"></button>
-  <input [readonly]="readonly" type="text" class="change"
+  <input (click)="showSubTasks()"
+         [readonly]="readonly" type="text" class="change"
          [(ngModel)]="task.text"
          [ngClass]="{done: task.done}"
          (focusout)="finishEditing()"

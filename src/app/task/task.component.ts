@@ -10,7 +10,7 @@ import {Output, EventEmitter} from '@angular/core';
 
 export class TaskComponent implements OnInit {
 
-  @Input() task: Task = {text: '', done: false}
+  @Input() task: Task = {text: '', done: false, subTasks: []}
   @Input() sorting: any
 
   isDone() {
@@ -46,5 +46,9 @@ export class TaskComponent implements OnInit {
   finishEditing() {
     this.readonly = true;
     this.updateLocalStorageTasks.emit();
+  }
+
+  showSubTasks() {
+    console.log(this.task.subTasks)
   }
 }
