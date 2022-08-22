@@ -2,6 +2,11 @@ import {Component, Input, OnInit} from "@angular/core";
 import {Task} from '../app.component';
 import {Output, EventEmitter} from '@angular/core';
 
+export interface Subtask {
+  text: string
+  done: boolean
+}
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -13,12 +18,16 @@ export class TaskComponent implements OnInit {
   @Input() task: Task = {text: '', done: false, subTasks: []}
   @Input() sorting: any
 
+  subtasks: Subtask[] | undefined
+
   isDone() {
     if (this.readonly) this.task.done = !this.task.done
     this.updateLocalStorageTasks.emit();
   }
 
   readonly = true
+
+  subtask = this.task.subTasks
 
   changeText(event: any) {
     if (!this.task.done) {
@@ -48,7 +57,7 @@ export class TaskComponent implements OnInit {
     this.updateLocalStorageTasks.emit();
   }
 
-  showSubTasks() {
+  clickTask() {
     console.log(this.task.subTasks)
   }
 }

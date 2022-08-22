@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   title: 'my-to-do' | undefined
 
   tasks: Task[] = JSON.parse(localStorage.getItem('tasks') ||
-    '[{"text": "Make a demo", "done": "true"}, ' +
+    '[{"text": "Make a demo", "done": "true", "subTasks": [{"text": "Make a start button", "done": "true"}, {"text": "Make a task list", "done": "true"}]}, ' +
     '{"text": "Learn Angular", "subTasks": [{"text": "Learn RxJS"}, {"text": "Learn lifecycle hooks"}]}]')
 
   updateLocalStorageTasks() {
