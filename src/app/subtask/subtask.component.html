@@ -1,0 +1,11 @@
+<li class="task">
+  <button class="doneButton"
+          [ngClass]="{unpressedDoneButton: !subtask.done}"
+          (click)="isDone()"></button>
+  <input (click)="showSub()"
+          [readonly]="readonly" type="text" class="change"
+         [(ngModel)]="subtask.text"
+         [ngClass]="{done: subtask.done}">
+  <button class="deleteAim"></button>
+  <button class="changeText">🖊</button>
+</li>
