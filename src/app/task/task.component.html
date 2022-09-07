@@ -3,7 +3,7 @@
   <button class="doneButton"
           [ngClass]="{unpressedDoneButton: !task.done}"
           (click)="isDone()"></button>
-  <input (click)="clickTask()"
+  <input (click)="showSubtasks()"
          [readonly]="readonly" type="text" class="change"
          [(ngModel)]="task.text"
          [ngClass]="{done: task.done}"
@@ -12,5 +12,3 @@
   <button class="deleteAim" (click)="deleteAim()"></button>
   <button class="changeText" (click)="changeText(input)">🖊</button>
 </li>
-<app-subtask *ngFor="let i of this.task.subTasks"
-             [subtask]="i"></app-subtask>

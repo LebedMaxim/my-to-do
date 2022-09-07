@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Subtask} from '../task/task.component';
 
 @Component({
   selector: 'app-subtask',
@@ -8,7 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 export class SubtaskComponent implements OnInit {
 
-  @Input() subtask: any
+  @Input() subtask: Subtask = {text: '', done: false}
 
   isDone() {
     if (this.readonly) this.subtask.done = !this.subtask.done

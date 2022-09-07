@@ -18,15 +18,12 @@ export class TaskComponent implements OnInit {
   @Input() task: Task = {text: '', done: false, subTasks: []}
   @Input() sorting: any
 
-  subtasks: Subtask[] | undefined
-
   isDone() {
     if (this.readonly) this.task.done = !this.task.done
     this.updateLocalStorageTasks.emit();
   }
 
   readonly = true
-
   subtask = this.task.subTasks
 
   changeText(event: any) {
@@ -38,9 +35,14 @@ export class TaskComponent implements OnInit {
 
   @Output() delItemEvent = new EventEmitter<any>();
   @Output() updateLocalStorageTasks = new EventEmitter<any>();
+  @Output() showSubtasksEvent = new EventEmitter<any>();
 
   deleteAim() {
     this.delItemEvent.emit(this.task);
+  }
+
+  showSubtasks() {
+    this.showSubtasksEvent.emit(this.task.subTasks);
   }
 
   ngOnInit() {
@@ -55,9 +57,5 @@ export class TaskComponent implements OnInit {
   finishEditing() {
     this.readonly = true;
     this.updateLocalStorageTasks.emit();
-  }
-
-  clickTask() {
-    console.log(this.task.subTasks)
   }
 }

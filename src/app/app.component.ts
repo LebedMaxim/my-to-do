@@ -58,4 +58,12 @@ export class AppComponent implements OnInit {
     console.log(localStorage.getItem("tasks"))
     /*localStorage.clear()*/
   }
+
+  subtasks = []
+  clickedSubtask = false
+
+  showSubs(arr: any) {
+    this.subtasks = arr
+    this.clickedSubtask = true
+  }
 }
