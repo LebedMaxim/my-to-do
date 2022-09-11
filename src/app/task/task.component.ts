@@ -31,6 +31,7 @@ export class TaskComponent implements OnInit {
       this.readonly = false
       event.focus()
     }
+    this.updateLocalStorageTasks.emit();
   }
 
   @Output() delItemEvent = new EventEmitter<any>();
@@ -38,6 +39,11 @@ export class TaskComponent implements OnInit {
 
   deleteAim() {
     this.delItemEvent.emit(this.task);
+  }
+
+  deleteSubAim(newItem: number) {
+    this.task.subTasks.splice(newItem, 1);
+    this.updateLocalStorageTasks.emit();
   }
 
   ngOnInit() {

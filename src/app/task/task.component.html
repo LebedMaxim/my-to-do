@@ -13,6 +13,7 @@
   <button class="changeText" (click)="changeText(input)">🖊</button>
 </li>
 <div *ngIf="showSubtasks">
-  <app-subtask *ngFor="let iter of this.task.subTasks"
-               [subtask]=iter></app-subtask>
+  <app-subtask *ngFor="let iter of this.task.subTasks; index as idy"
+               [subtask]=iter
+               (delItemEvent)="deleteSubAim(idy)"></app-subtask>
 </div>

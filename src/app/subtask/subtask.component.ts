@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Subtask} from '../task/task.component';
 
 @Component({
@@ -19,7 +19,26 @@ export class SubtaskComponent implements OnInit {
 
   readonly = true
 
+  changeText(event: any) {
+    if (!this.subtask.done) {
+      this.readonly = false
+      event.focus()
+    }
+  }
+
+  @Output() delItemEvent = new EventEmitter<any>();
+  @Output() updateLocalStorageTasks = new EventEmitter<any>();
+
+  deleteSubAim() {
+    this.delItemEvent.emit(this.subtask);
+  }
+
   ngOnInit(): void {
+  }
+
+  finishEditing() {
+    this.readonly = true;
+    this.updateLocalStorageTasks.emit();
   }
 
   showSub() {
