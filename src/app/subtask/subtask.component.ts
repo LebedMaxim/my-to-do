@@ -12,7 +12,9 @@ export class SubtaskComponent implements OnInit {
   @Input() subtask: Subtask = {text: '', done: false}
 
   isDone() {
-    if (this.readonly) this.subtask.done = !this.subtask.done
+    if (this.readonly) {
+      this.subtask.done = !this.subtask.done
+    }
   }
 
   readonly = true

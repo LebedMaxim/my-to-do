@@ -24,7 +24,7 @@ export class TaskComponent implements OnInit {
   }
 
   readonly = true
-  subtask = this.task.subTasks
+  showSubtasks = false
 
   changeText(event: any) {
     if (!this.task.done) {
@@ -35,14 +35,9 @@ export class TaskComponent implements OnInit {
 
   @Output() delItemEvent = new EventEmitter<any>();
   @Output() updateLocalStorageTasks = new EventEmitter<any>();
-  @Output() showSubtasksEvent = new EventEmitter<any>();
 
   deleteAim() {
     this.delItemEvent.emit(this.task);
-  }
-
-  showSubtasks() {
-    this.showSubtasksEvent.emit(this.task.subTasks);
   }
 
   ngOnInit() {
