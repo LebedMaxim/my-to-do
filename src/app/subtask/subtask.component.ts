@@ -4,7 +4,7 @@ import {Subtask} from '../task/task.component';
 @Component({
   selector: 'app-subtask',
   templateUrl: './subtask.component.html',
-  styleUrls: ['../task/task.component.css']
+  styleUrls: ['../task/task.component.css', './subtask.component.css']
 })
 
 export class SubtaskComponent implements OnInit {
