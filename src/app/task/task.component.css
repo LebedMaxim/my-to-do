@@ -20,7 +20,7 @@ input {
 
 .change {
   color: grey;
-  width: 85%;
+  width: 80%;
 }
 
 .task {
@@ -37,16 +37,16 @@ input {
   color: rgb(187, 187, 187);
 }
 
-.deleteAim, .deleteAim:before, .deleteAim:after, .changeText, .doneButton:before {
+.addSubtask, .addSubtask:before, .addSubtask:after, .deleteAim, .deleteAim:before, .deleteAim:after, .changeText, .doneButton:before {
   position: absolute;
 }
 
-.deleteAim:before, .deleteAim:after {
+.addSubtask:before, .addSubtask:after, .deleteAim:before, .deleteAim:after {
   width: 12px;
   height: 12px;
 }
 
-.deleteAim, .changeText, .doneButton {
+.addSubtask, .deleteAim, .changeText, .doneButton {
   cursor: pointer;
   width: 15px;
   height: 15px;
@@ -58,8 +58,8 @@ input {
   margin-right: 5px;
 }
 
-.deleteAim {
-  left: 95%;
+.addSubtask {
+  left: 85%;
   padding-right: 11px;
 }
 
@@ -70,10 +70,19 @@ input {
   padding-bottom: 5px;
 }
 
-.deleteAim:before, .deleteAim:after {
+.deleteAim {
+  left: 95%;
+  padding-right: 11px;
+}
+
+.addSubtask:before, .addSubtask:after, .deleteAim:before, .deleteAim:after {
   content: '';
   height: 1px;
   background: grey;
+}
+
+.addSubtask:before {
+  transform: rotate(90deg);
 }
 
 .deleteAim:before, .doneButton:before {
@@ -84,7 +93,7 @@ input {
   transform: rotate(-45deg);
 }
 
-.changeText:hover, .deleteAim:hover {
+.addSubtask:hover, .changeText:hover, .deleteAim:hover {
   color: white;
   background-color: rgb(187, 187, 187);
   border: 1px solid rgb(187, 187, 187);
@@ -114,10 +123,10 @@ input {
   border: 1px solid #009933;
 }
 
-.deleteAim:hover:before, .deleteAim:hover:after {
+.addSubtask:hover:before, .addSubtask:hover:after, .deleteAim:hover:before, .deleteAim:hover:after {
   background-color: white;
 }
 
-.changeText:active, .deleteAim:active {
+.addSubtask:active, .changeText:active, .deleteAim:active {
   background-color: rgb(161, 161, 161);;
 }
