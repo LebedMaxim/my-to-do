@@ -56,6 +56,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log(localStorage.getItem("tasks"))
-    /*localStorage.clear()*/
+  }
+
+  clearLocalStorage() {
+    localStorage.clear()
   }
 }
