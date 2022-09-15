@@ -2,12 +2,11 @@
   <button class="doneButton"
           [ngClass]="{unpressedDoneButton: !subtask.done}"
           (click)="isDone()"></button>
-  <input (click)="showSub()"
-         [readonly]="readonly" type="text" class="change"
+  <input [readonly]="readonly" type="text" class="change"
          [(ngModel)]="subtask.text"
          [ngClass]="{done: subtask.done}"
          (focusout)="finishEditing()"
-         (keyup.enter)="finishEditing()" #input>
+         (keyup.enter)="finishEditing()" #subInput>
   <button class="deleteAim" (click)="deleteSubAim()"></button>
-  <button class="changeText" (click)="changeText(input)">🖊</button>
+  <button class="changeText" (click)="changeText(subInput)">🖊</button>
 </li>

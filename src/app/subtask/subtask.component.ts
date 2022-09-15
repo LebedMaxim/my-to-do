@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AfterViewInit, ViewChild, ElementRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Subtask} from '../task/task.component';
 
 @Component({
@@ -7,13 +7,20 @@ import {Subtask} from '../task/task.component';
   styleUrls: ['../task/task.component.css', './subtask.component.css']
 })
 
-export class SubtaskComponent implements OnInit {
+export class SubtaskComponent implements OnInit, AfterViewInit {
 
   @Input() subtask: Subtask = {text: '', done: false}
+  @Input() idSubTask: boolean | undefined
+
+  @ViewChild('subInput') subInputElement!: ElementRef<HTMLInputElement>;
+
+  constructor() {
+  }
 
   isDone() {
     if (this.readonly) {
       this.subtask.done = !this.subtask.done
+      this.updateLocalStorageSubTasks.emit();
     }
   }
 
@@ -27,7 +34,7 @@ export class SubtaskComponent implements OnInit {
   }
 
   @Output() delItemEvent = new EventEmitter<any>();
-  @Output() updateLocalStorageTasks = new EventEmitter<any>();
+  @Output() updateLocalStorageSubTasks = new EventEmitter<any>();
 
   deleteSubAim() {
     this.delItemEvent.emit(this.subtask);
@@ -36,12 +43,22 @@ export class SubtaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  finishEditing() {
-    this.readonly = true;
-    this.updateLocalStorageTasks.emit();
+  ngAfterViewInit(): void {
+    if (this.idSubTask) {
+      setTimeout(() => {
+        this.readonly = false
+        this.subInputElement.nativeElement.focus();
+        this.subInputElement.nativeElement.select();
+        this.idSubTask = false
+        console.log(this.idSubTask)
+        this.updateLocalStorageSubTasks.emit();
+      })
+    }
   }
 
-  showSub() {
-    console.log(this.subtask)
+  finishEditing() {
+    this.readonly = true;
+    this.idSubTask = false
+    this.updateLocalStorageSubTasks.emit();
   }
 }

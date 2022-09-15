@@ -9,12 +9,14 @@
          [ngClass]="{done: task.done}"
          (focusout)="finishEditing()"
          (keyup.enter)="finishEditing()" #input>
-  <button class="addSubtask"></button>
+  <button class="addSubtask" (click)="addSubTask()"></button>
   <button class="changeText" (click)="changeText(input)">🖊</button>
   <button class="deleteAim" (click)="deleteAim()"></button>
 </li>
 <div *ngIf="showSubtasks">
   <app-subtask *ngFor="let iter of this.task.subTasks; index as idy"
                [subtask]=iter
-               (delItemEvent)="deleteSubAim(idy)"></app-subtask>
+               [idSubTask]="idSubTask"
+               (delItemEvent)="deleteSubAim(idy)"
+               (updateLocalStorageSubTasks)="updateLocalStorageSubTasks()"></app-subtask>
 </div>

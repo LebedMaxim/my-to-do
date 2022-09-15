@@ -59,4 +59,16 @@ export class TaskComponent implements OnInit {
     this.readonly = true;
     this.updateLocalStorageTasks.emit();
   }
+
+  idSubTask = false
+
+  addSubTask() {
+    this.task.subTasks.push({text: 'Enter your subtask', done: false})
+    this.idSubTask = true
+    this.updateLocalStorageTasks.emit();
+  }
+
+  updateLocalStorageSubTasks() {
+    this.updateLocalStorageTasks.emit();
+  }
 }
