@@ -23,8 +23,8 @@ export class TaskComponent implements OnInit {
     this.updateLocalStorageTasks.emit();
   }
 
-  readonly = true
-  showSubtasks = false
+  readonly: boolean = true
+  isShownSubtasks: boolean = false
 
   changeText(event: any) {
     if (!this.task.done) {
@@ -55,16 +55,18 @@ export class TaskComponent implements OnInit {
       || e === 'Completed' && this.task.done
   }
 
+  isEditedSubTask: boolean = false
+
   finishEditing() {
     this.readonly = true;
+    this.isEditedSubTask = false;
     this.updateLocalStorageTasks.emit();
   }
-
-  idSubTask = false
-
+  
   addSubTask() {
+    this.isShownSubtasks = true
     this.task.subTasks.push({text: 'Enter your subtask', done: false})
-    this.idSubTask = true
+    this.isEditedSubTask = true
     this.updateLocalStorageTasks.emit();
   }
 

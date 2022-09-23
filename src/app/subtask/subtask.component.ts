@@ -10,7 +10,8 @@ import {Subtask} from '../task/task.component';
 export class SubtaskComponent implements OnInit, AfterViewInit {
 
   @Input() subtask: Subtask = {text: '', done: false}
-  @Input() idSubTask: boolean | undefined
+  @Input() isEditedSubTask: boolean | undefined
+  @Input() isShownSubtasks: boolean | undefined
 
   @ViewChild('subInput') subInputElement!: ElementRef<HTMLInputElement>;
 
@@ -44,13 +45,12 @@ export class SubtaskComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.idSubTask) {
+    if (this.isEditedSubTask) {
       setTimeout(() => {
         this.readonly = false
         this.subInputElement.nativeElement.focus();
         this.subInputElement.nativeElement.select();
-        this.idSubTask = false
-        console.log(this.idSubTask)
+        this.isEditedSubTask = false
         this.updateLocalStorageSubTasks.emit();
       })
     }
@@ -58,7 +58,7 @@ export class SubtaskComponent implements OnInit, AfterViewInit {
 
   finishEditing() {
     this.readonly = true;
-    this.idSubTask = false
+    this.isEditedSubTask = false;
     this.updateLocalStorageSubTasks.emit();
   }
 }
