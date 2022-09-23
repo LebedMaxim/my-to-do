@@ -128,5 +128,9 @@ input {
 }
 
 .addSubtask:active, .changeText:active, .deleteAim:active {
-  background-color: rgb(161, 161, 161);;
+  background-color: rgb(161, 161, 161);
+}
+
+.isContainedSubTask:hover {
+  color: black;
 }
