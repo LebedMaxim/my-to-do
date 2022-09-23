@@ -20,7 +20,7 @@ input {
 
 .change {
   color: grey;
-  width: 80%;
+  width: 75%;
 }
 
 .task {
@@ -37,11 +37,11 @@ input {
   color: rgb(187, 187, 187);
 }
 
-.addSubtask, .addSubtask:before, .addSubtask:after, .deleteAim, .deleteAim:before, .deleteAim:after, .changeText, .doneButton:before {
+.addSubtask, .addSubtask:before, .addSubtask:after, .deleteAim, .deleteAim:before, .deleteAim:after, .changeText, .doneButton:before, .subTasksCounter {
   position: absolute;
 }
 
-.addSubtask:before, .addSubtask:after, .deleteAim:before, .deleteAim:after {
+.addSubtask:before, .addSubtask:after, .deleteAim:before, .deleteAim:after, .subTasksCounter {
   width: 12px;
   height: 12px;
 }
@@ -56,6 +56,11 @@ input {
 .doneButton {
   padding: 15px 0 0 3px;
   margin-right: 5px;
+}
+
+.subTasksCounter {
+  left: 80%;
+  font-size: 14px;
 }
 
 .addSubtask {

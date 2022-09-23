@@ -73,4 +73,8 @@ export class TaskComponent implements OnInit {
   updateLocalStorageSubTasks() {
     this.updateLocalStorageTasks.emit();
   }
+
+  subTasksCounter() {
+    return this.task.subTasks.filter(item => !item.done).length
+  }
 }
