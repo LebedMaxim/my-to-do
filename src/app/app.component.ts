@@ -46,6 +46,16 @@ export class AppComponent implements OnInit {
 
   clearCompleted() {
     for (let i = 0; i < this.tasks.length; i++) {
+
+      if (!this.tasks[i].done) {
+        for (let j = 0; j < this.tasks[i].subTasks.length; j++) {
+          if (this.tasks[i].subTasks[j].done) {
+            this.tasks[i].subTasks.splice(j, 1)
+            j = j - 1
+          }
+        }
+      }
+
       if (this.tasks[i].done) {
         this.tasks.splice(i, 1)
         i = i - 1
