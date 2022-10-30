@@ -48,13 +48,13 @@ input {
 
 .addSubtask, .deleteAim, .changeText, .doneButton {
   cursor: pointer;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   border: 1px solid white;
 }
 
 .doneButton {
-  padding: 15px 0 0 3px;
+  padding: 15px 0 0 5px;
   margin-right: 5px;
 }
 
@@ -138,4 +138,8 @@ input {
 
 .isContainedSubTask:hover {
   color: black;
+}
+
+.doneButton, .addSubtask, .changeText, .deleteAim {
+  border-radius: 7px;
 }

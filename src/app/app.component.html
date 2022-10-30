@@ -2,9 +2,9 @@
   <h1>To-do list</h1>
   <div class="cover">
     <div class="start-container">
-      <button class="startButton" (click)="addArrElem(start)">ᐯ</button>
       <input type="text" class="start" placeholder="What needs to be done?"
              (keyup.enter)="addArrElem(start)" #start>
+      <button class="startButton" (click)="addArrElem(start)">Add</button>
     </div>
     <ul class="tasks">
       <app-task *ngFor="let iterTask of tasks; index as idx"
