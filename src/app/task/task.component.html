@@ -15,9 +15,10 @@
   <button class="deleteAim" (click)="deleteAim()"></button>
 </li>
 <app-subtask *ngFor="let iter of task.subTasks; index as idy"
-             [subtask]=iter
+             [subtask]=iter [sorting]="sorting"
              [isEditedSubTask]="isEditedSubTask"
              (delItemEvent)="deleteSubAim(idy)"
              (updateLocalStorageSubTasks)="updateLocalStorageSubTasks()"
+             [isDoneTask]="task.done"
              [isShownSubtasks]="isShownSubtasks"
 ></app-subtask>

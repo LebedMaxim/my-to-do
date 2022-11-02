@@ -1,4 +1,4 @@
-<li class="task subtask" *ngIf="isShownSubtasks">
+<li class="task subtask" *ngIf="detectSortingSubtasks(sorting)">
   <button class="doneButton"
           [ngClass]="{unpressedDoneButton: !subtask.done}"
           (click)="isDone()"></button>

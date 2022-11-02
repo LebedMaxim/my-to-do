@@ -10,7 +10,9 @@ import {Subtask} from '../task/task.component';
 export class SubtaskComponent implements OnInit, AfterViewInit {
 
   @Input() subtask: Subtask = {text: '', done: false}
+  @Input() sorting: any
   @Input() isEditedSubTask: boolean | undefined
+  @Input() isDoneTask: boolean | undefined
   @Input() isShownSubtasks: boolean | undefined
 
   @ViewChild('subInput') subInputElement!: ElementRef<HTMLInputElement>;
@@ -60,5 +62,14 @@ export class SubtaskComponent implements OnInit, AfterViewInit {
     this.readonly = true;
     this.isEditedSubTask = false;
     this.updateLocalStorageSubTasks.emit();
+  }
+
+  detectSortingSubtasks(e: string): undefined | boolean {
+    if (this.isShownSubtasks) {
+      return e === 'All'
+        || e === 'Active' && !this.isDoneTask && !this.subtask.done
+        || e === 'Completed' && this.isDoneTask && this.subtask.done
+    }
+    return false
   }
 }
