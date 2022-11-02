@@ -2,6 +2,11 @@ import {Component, Input, OnInit} from "@angular/core";
 import {Task} from '../app.component';
 import {Output, EventEmitter} from '@angular/core';
 
+export interface Subtask {
+  text: string
+  done: boolean
+}
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -18,13 +23,15 @@ export class TaskComponent implements OnInit {
     this.updateLocalStorageTasks.emit();
   }
 
-  readonly = true
+  readonly: boolean = true
+  isShownSubtasks: boolean = false
 
   changeText(event: any) {
     if (!this.task.done) {
       this.readonly = false
       event.focus()
     }
+    this.updateLocalStorageTasks.emit();
   }
 
   @Output() delItemEvent = new EventEmitter<any>();
@@ -32,6 +39,11 @@ export class TaskComponent implements OnInit {
 
   deleteAim() {
     this.delItemEvent.emit(this.task);
+  }
+
+  deleteSubAim(newItem: number) {
+    this.task.subTasks.splice(newItem, 1);
+    this.updateLocalStorageTasks.emit();
   }
 
   ngOnInit() {
@@ -43,12 +55,26 @@ export class TaskComponent implements OnInit {
       || e === 'Completed' && this.task.done
   }
 
+  isEditedSubTask: boolean = false
+
   finishEditing() {
     this.readonly = true;
+    this.isEditedSubTask = false;
     this.updateLocalStorageTasks.emit();
   }
 
-  showSubTasks() {
-    console.log(this.task.subTasks)
+  addSubTask() {
+    this.isShownSubtasks = true
+    this.task.subTasks.push({text: 'Enter your subtask', done: false})
+    this.isEditedSubTask = true
+    this.updateLocalStorageTasks.emit();
+  }
+
+  updateLocalStorageSubTasks() {
+    this.updateLocalStorageTasks.emit();
+  }
+
+  subTasksCounter() {
+    return this.task.subTasks.filter(item => !item.done).length
   }
 }

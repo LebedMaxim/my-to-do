@@ -17,7 +17,7 @@ input {
 
 .wrapper {
   margin: auto;
-  width: 500px;
+  width: 1200px;
 }
 
 .wrapper h1 {
@@ -31,9 +31,12 @@ input {
 }
 
 .start-container {
-  position: relative;
-  padding-left: 35px;
+  display: flex;
   border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+.start-container * {
+  font-size: 20px;
 }
 
 .start, .start::placeholder, footer, footer * {
@@ -91,17 +94,23 @@ button.deleteAim {
   transform: rotate(-45deg);
 }
 
-button.startButton {
-  position: absolute;
-  top: 1.6em;
-  left: 1em;
-  height: 1.6em;
-  width: 1.6em;
+.startButton {
+  position: relative;
   background-color: #0093ff;
   color: white;
-  margin-top: -1em;
-  padding: 0;
-  font-size: 10px;
+  padding: 3px 3px 3px 30px;
+}
+
+.startButton:before, .startButton:after {
+  position: absolute;
+  right: 50px;
+  content: '';
+  border: 1px solid white;
+  height: 1em;
+}
+
+.startButton:after {
+  transform: rotate(90deg);
 }
 
 .sort {
@@ -112,15 +121,26 @@ button.startButton {
   display: none;
 }
 
-.sort label, button.clear-completed, .startButton {
+.sort label, button.clear-completed {
   color: #0093ff;
   border: 1px solid #0093ff;
+
+}
+
+.sort label, .clear-completed, .startButton, .cover, .start {
   border-radius: 7px;
+}
+
+.items-left, .clear-completed, .sort label, .startButton {
+  margin: 3px;
+}
+
+.start {
+  margin: 3px 3px 3px 45px;
 }
 
 .items-left, .clear-completed, .sort label {
   padding: 0 5px;
-  margin: 3px;
 }
 
 .sort label {
@@ -156,7 +176,7 @@ footer {
 }
 
 footer * {
-  font-size: 12px;
+  font-size: 18px;
   font-family: Roboto, sans-serif;
   align-self: center;
 }
@@ -175,7 +195,7 @@ footer * {
   background: rgb(212, 212, 212);
 }
 
-@media screen and (max-width: 515px) {
+@media screen and (max-width: 1215px) {
   .wrapper {
     width: 100%;
   }

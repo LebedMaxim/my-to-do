@@ -1,0 +1,12 @@
+<li class="task subtask" *ngIf="detectSortingSubtasks(sorting)">
+  <button class="doneButton"
+          [ngClass]="{unpressedDoneButton: !subtask.done}"
+          (click)="isDone()"></button>
+  <input [readonly]="readonly" type="text" class="change"
+         [(ngModel)]="subtask.text"
+         [ngClass]="{done: subtask.done}"
+         (focusout)="finishEditing()"
+         (keyup.enter)="finishEditing()" #subInput>
+  <button class="deleteAim" (click)="deleteSubAim()"></button>
+  <button class="changeText" (click)="changeText(subInput)">🖊</button>
+</li>

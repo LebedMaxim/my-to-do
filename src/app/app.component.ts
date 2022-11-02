@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   title: 'my-to-do' | undefined
 
   tasks: Task[] = JSON.parse(localStorage.getItem('tasks') ||
-    '[{"text": "Make a demo", "done": "true"}, ' +
+    '[{"text": "Make a demo", "done": "true", "subTasks": [{"text": "Make a start button", "done": "true"}, {"text": "Make a task list", "done": "true"}]}, ' +
     '{"text": "Learn Angular", "subTasks": [{"text": "Learn RxJS"}, {"text": "Learn lifecycle hooks"}]}]')
 
   updateLocalStorageTasks() {
@@ -40,12 +40,36 @@ export class AppComponent implements OnInit {
     return this.tasks.filter(item => !item.done).length
   }
 
+  allSubtasksCounter() {
+    let activeSubtasks = 0;
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (!this.tasks[i].done && this.tasks[i].subTasks) {
+        for (let j = 0; j < this.tasks[i].subTasks.length; j++) {
+          if (!this.tasks[i].subTasks[j].done) {
+            activeSubtasks += 1;
+          }
+        }
+      }
+    }
+    return activeSubtasks;
+  }
+
   form = new FormGroup({
     sort: new FormControl('All')
   })
 
   clearCompleted() {
     for (let i = 0; i < this.tasks.length; i++) {
+
+      if (!this.tasks[i].done) {
+        for (let j = 0; j < this.tasks[i].subTasks.length; j++) {
+          if (this.tasks[i].subTasks[j].done) {
+            this.tasks[i].subTasks.splice(j, 1)
+            j = j - 1
+          }
+        }
+      }
+
       if (this.tasks[i].done) {
         this.tasks.splice(i, 1)
         i = i - 1
@@ -55,7 +79,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(localStorage.getItem("tasks"))
-    /*localStorage.clear()*/
+  }
+
+  clearLocalStorage() {
+    localStorage.clear()
+    window.location.reload()
   }
 }

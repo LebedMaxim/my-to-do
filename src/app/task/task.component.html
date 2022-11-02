@@ -3,12 +3,22 @@
   <button class="doneButton"
           [ngClass]="{unpressedDoneButton: !task.done}"
           (click)="isDone()"></button>
-  <input (click)="showSubTasks()"
+  <input (click)="isShownSubtasks=!isShownSubtasks"
          [readonly]="readonly" type="text" class="change"
          [(ngModel)]="task.text"
-         [ngClass]="{done: task.done}"
+         [ngClass]="{done: task.done, isContainedSubTask: task.subTasks.length > 0}"
          (focusout)="finishEditing()"
          (keyup.enter)="finishEditing()" #input>
-  <button class="deleteAim" (click)="deleteAim()"></button>
+  <span class="subTasksCounter" *ngIf="subTasksCounter()">{{subTasksCounter()}}</span>
+  <button class="addSubtask" (click)="addSubTask()"></button>
   <button class="changeText" (click)="changeText(input)">🖊</button>
+  <button class="deleteAim" (click)="deleteAim()"></button>
 </li>
+<app-subtask *ngFor="let iter of task.subTasks; index as idy"
+             [subtask]=iter [sorting]="sorting"
+             [isEditedSubTask]="isEditedSubTask"
+             (delItemEvent)="deleteSubAim(idy)"
+             (updateLocalStorageSubTasks)="updateLocalStorageSubTasks()"
+             [isDoneTask]="task.done"
+             [isShownSubtasks]="isShownSubtasks"
+></app-subtask>
