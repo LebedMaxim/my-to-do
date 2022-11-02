@@ -40,6 +40,20 @@ export class AppComponent implements OnInit {
     return this.tasks.filter(item => !item.done).length
   }
 
+  allSubtasksCounter() {
+    let activeSubtasks = 0;
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (!this.tasks[i].done && this.tasks[i].subTasks) {
+        for (let j = 0; j < this.tasks[i].subTasks.length; j++) {
+          if (!this.tasks[i].subTasks[j].done) {
+            activeSubtasks += 1;
+          }
+        }
+      }
+    }
+    return activeSubtasks;
+  }
+
   form = new FormGroup({
     sort: new FormControl('All')
   })
@@ -69,5 +83,6 @@ export class AppComponent implements OnInit {
 
   clearLocalStorage() {
     localStorage.clear()
+    window.location.reload()
   }
 }
