@@ -37,7 +37,9 @@ export class AppComponent implements OnInit {
   }
 
   allTasksCounter() {
-    return this.tasks.filter(item => !item.done).length
+    let activeTasks = this.tasks.filter(item => !item.done).length
+    if (activeTasks === 1) return `${activeTasks} item`
+    return `${activeTasks} items`
   }
 
   allSubtasksCounter() {
@@ -51,7 +53,8 @@ export class AppComponent implements OnInit {
         }
       }
     }
-    return activeSubtasks;
+    if (activeSubtasks === 1) return `${activeSubtasks} subtask`
+    return `${activeSubtasks} subtasks`
   }
 
   form = new FormGroup({
