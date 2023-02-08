@@ -1,12 +1,7 @@
-#STAGE 1
-FROM node:18.12.1-alpine AS build
+FROM node:alpine
 WORKDIR /src/app
-COPY package.json package-lock.json ./
+COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
-
-#STAGE 2
-FROM nginx:1.17.1-alpine
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /src/app/dist/my-to-do /usr/share/nginx/html
+EXPOSE 3002
+CMD /src/app/node_modules/.bin/ng serve --host 0.0.0.0 --port 3002 --disable-host-check
