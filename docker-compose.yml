@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  my-to-do:
+    build: .
+    ports:
+      - "3002:3002"
+    image: my-to-do
+    container_name: my-to-do
+    volumes:
+      - "/src/app/node_modules"
+      - ".:/src/app"
