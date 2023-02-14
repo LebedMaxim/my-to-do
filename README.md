@@ -4,7 +4,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <br/>It's a very simple but also very useful application for writing down your own aims and tasks not to forget them.
 The user can correct current tasks, check finished tasks, delete and sort all of them.
 
-
 ## Version's log
 
 ### 0.9.1
@@ -61,6 +60,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Build & start docker-container
+
+Build our docker image with the following: `docker build -t my-to-do .`
+
+To run the image use the following: `docker run --name my-to-do --publish 3002:3002 my-to-do`
+
+See your app running at http://localhost:3002 !
 
 ## Running unit tests
 
