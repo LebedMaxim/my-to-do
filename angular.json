@@ -106,5 +106,7 @@
       }
     }
   },
-  "defaultProject": "my-to-do"
+  "cli": {
+    "analytics": false
+  }
 }

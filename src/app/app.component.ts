@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import {UntypedFormGroup, UntypedFormControl} from '@angular/forms';
 
 export interface Task {
   text: string
@@ -57,8 +57,8 @@ export class AppComponent implements OnInit {
     return `${activeSubtasks} subtasks`
   }
 
-  form = new FormGroup({
-    sort: new FormControl('All')
+  form = new UntypedFormGroup({
+    sort: new UntypedFormControl('All')
   })
 
   clearCompleted() {
