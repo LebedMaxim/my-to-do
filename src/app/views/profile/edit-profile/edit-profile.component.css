@@ -1,0 +1,214 @@
+button {
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 0;
+  background-color: white;
+}
+
+input {
+  border: 0;
+  outline: 0;
+}
+
+.wrapper {
+  margin: auto;
+  width: 1200px;
+}
+
+.wrapper h1 {
+  color: #0093ff;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.start-container, .start {
+  width: 100%;
+}
+
+.start-container {
+  display: flex;
+  border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+.start-container * {
+  font-size: 20px;
+}
+
+.start, .start::placeholder, footer, footer * {
+  color: rgb(187, 187, 187);
+}
+
+.start::placeholder {
+  opacity: 0.7;
+}
+
+.start {
+  padding: 5px 0;
+}
+
+.cover {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  box-shadow: 0 1px 7px 1px grey;
+  background: white;
+}
+
+.cover ul {
+  overflow-y: scroll;
+  max-height: calc(100vh - 120px);
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+button.deleteAim, .deleteAim:before, .deleteAim:after {
+  position: absolute;
+  width: 11px;
+}
+
+button.deleteAim {
+  cursor: pointer;
+  top: 8px;
+  left: 95%;
+  height: 11px;
+  padding-right: 11px;
+}
+
+.deleteAim:before, .deleteAim:after {
+  content: '';
+  height: 1px;
+  background: grey;
+}
+
+.deleteAim:before {
+  transform: rotate(45deg);
+}
+
+.deleteAim:after {
+  transform: rotate(-45deg);
+}
+
+.startButton {
+  position: relative;
+  background-color: #0093ff;
+  color: white;
+  padding: 3px 3px 3px 30px;
+}
+
+.startButton:before, .startButton:after {
+  position: absolute;
+  right: 50px;
+  content: '';
+  border: 1px solid white;
+  height: 1em;
+}
+
+.startButton:after {
+  transform: rotate(90deg);
+}
+
+.sort {
+  display: inline-block;
+}
+
+.sort input[type=radio] {
+  display: none;
+}
+
+.sort label, button.clear-completed {
+  color: #0093ff;
+  border: 1px solid #0093ff;
+
+}
+
+.sort label, .clear-completed, .startButton, .cover, .start {
+  border-radius: 7px;
+}
+
+.items-left, .clear-completed, .sort label, .startButton {
+  margin: 3px;
+}
+
+.start {
+  margin: 3px 3px 3px 45px;
+}
+
+.items-left, .clear-completed, .sort label {
+  padding: 0 5px;
+}
+
+.sort label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.sort input[type=radio]:checked + label {
+  color: white;
+  border-color: #0093ff;
+  background-color: #0093ff;
+}
+
+.sort label:hover, .clear-completed:hover, .sort input[type=radio]:checked + label:hover {
+  color: white;
+  border-color: #61b9ff;
+  background-color: #61b9ff;
+}
+
+.startButton:hover {
+  background-color: #61b9ff;
+}
+
+.sort label:active, .clear-completed:active, .startButton:active {
+  background-color: #006dbd;
+}
+
+footer {
+  display: flex;
+  flex: 100%;
+  justify-content: space-between;
+  border-top: 1px solid rgb(212, 212, 212);
+}
+
+footer * {
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+  align-self: center;
+}
+
+.tasks {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.tasks::-webkit-scrollbar {
+  background-color: white;
+  width: 4px;
+}
+
+.tasks::-webkit-scrollbar-thumb {
+  background: rgb(212, 212, 212);
+}
+
+@media screen and (max-width: 1215px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
+logout {
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: initial;
+  padding: 0;
+  background-color: initial;
+}

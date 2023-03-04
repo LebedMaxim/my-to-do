@@ -1,2 +1,42 @@
 <p>Hi {{user}}</p>
-<button (click)="logout()">Logout</button>
+<button class="logout" (click)="logout()">Logout</button>
+<section class="wrapper">
+  <h1>To-do list</h1>
+  <div class="cover">
+    <div class="start-container">
+      <input type="text" class="start" placeholder="What needs to be done?"
+             (keyup.enter)="addArrElem(start)" #start>
+      <button class="startButton" (click)="addArrElem(start)">Add</button>
+    </div>
+    <ul class="tasks">
+      <app-task *ngFor="let iterTask of tasks; index as idx"
+                [task]="iterTask" [sorting]="form.value.sort"
+                (delItemEvent)="deleteAim(idx)"
+                (updateLocalStorageTasks)="updateLocalStorageTasks()"></app-task>
+    </ul>
+    <footer class="footer">
+      <span class="items-left">{{allTasksCounter()}} left (with {{allSubtasksCounter()}})</span>
+      <div [formGroup]="form">
+        <div class="sort">
+          <input type="radio" id="all" name="sort"
+                 formControlName="sort" value="All">
+          <label for="all">All</label>
+        </div>
+        <div class="sort">
+          <input type="radio" id="active" name="sort"
+                 formControlName="sort" value="Active">
+          <label for="active">Active</label>
+        </div>
+        <div class="sort">
+          <input type="radio" id="completed" name="sort"
+                 formControlName="sort" value="Completed">
+          <label for="completed">Completed</label>
+        </div>
+      </div>
+      <div>
+        <button class="clear-completed" (click)="clearCompleted()">✖ Clear completed</button>
+        <button class="clear-completed" (click)="clearLocalStorage()">✖ Restart app</button>
+      </div>
+    </footer>
+  </div>
+</section>

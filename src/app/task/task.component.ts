@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {Task} from '../app.component';
+import {Task} from '../views/profile/edit-profile/edit-profile.component';
 import {Output, EventEmitter} from '@angular/core';
 
 export interface Subtask {
