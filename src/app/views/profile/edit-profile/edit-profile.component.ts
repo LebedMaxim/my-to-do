@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
+import {KeycloakService} from 'keycloak-angular';
 
 export interface Task {
   text: string
@@ -16,14 +17,19 @@ export class EditProfileComponent implements OnInit {
 
   user = '';
 
+  constructor(private keycloakService: KeycloakService) {
+  }
+
   ngOnInit(): void {
     this.initializeUserOptions();
   }
 
   private initializeUserOptions(): void {
+    this.user = this.keycloakService.getUsername();
   }
 
   logout(): void {
+    this.keycloakService.logout('http://127.0.0.1:3001').then();
   }
 
   tasks: Task[] = JSON.parse(localStorage.getItem('tasks') ||
