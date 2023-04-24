@@ -31,6 +31,12 @@ services:
       KC_LOG_LEVEL: info
     command:
       - start-dev
+      - --import-realm
+    volumes:
+      - type: bind
+        source: ./home/keycloak/realm.json
+        target: /opt/keycloak/data/import/realm.json
+        read_only: true
     ports:
       - "3300:8080"
     depends_on:
