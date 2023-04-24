@@ -29,7 +29,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   logout(): void {
-    this.keycloakService.logout('http://127.0.0.1:3001').then();
+    this.keycloakService.logout('http://127.0.0.1:3002').then();
   }
 
   tasks: Task[] = JSON.parse(localStorage.getItem('tasks') ||
