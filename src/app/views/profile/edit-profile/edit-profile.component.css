@@ -94,19 +94,41 @@ button.deleteAim {
   transform: rotate(-45deg);
 }
 
-.startButton {
+.startButton, .logout {
   position: relative;
-  background-color: #0093ff;
   color: white;
-  padding: 3px 3px 3px 30px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.startButton {
+  padding-left: 30px;
+  padding-right: 3px;
+}
+
+.logout {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.startButton {
+  background-color: #0093ff;
+}
+
+.logout {
+
+  background-color: grey;
 }
 
 .startButton:before, .startButton:after {
   position: absolute;
-  right: 50px;
   content: '';
   border: 1px solid white;
   height: 1em;
+}
+
+.startButton:before, .startButton:after {
+  right: 50px;
 }
 
 .startButton:after {
@@ -127,11 +149,11 @@ button.deleteAim {
 
 }
 
-.sort label, .clear-completed, .startButton, .cover, .start {
+.sort label, .clear-completed, .startButton, .cover, .start, .logout {
   border-radius: 7px;
 }
 
-.items-left, .clear-completed, .sort label, .startButton {
+.items-left, .clear-completed, .sort label, .startButton, .logout {
   margin: 3px;
 }
 
@@ -164,8 +186,16 @@ button.deleteAim {
   background-color: #61b9ff;
 }
 
+.logout:hover {
+  background-color: darkgrey;
+}
+
 .sort label:active, .clear-completed:active, .startButton:active {
   background-color: #006dbd;
+}
+
+.logout:active {
+  background-color: dimgrey;
 }
 
 footer {
@@ -201,6 +231,3 @@ footer * {
   }
 }
 
-.logout {
-  all: revert;
-}

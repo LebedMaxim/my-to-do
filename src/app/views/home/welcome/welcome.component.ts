@@ -14,7 +14,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showProfile(): void {
+  login(): void {
     this.router.navigateByUrl('/profile').then();
   }
 
