@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
-// import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -28,7 +28,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   ],
   imports: [
     BrowserModule,
-    // NgbModule,
+    NgbModule,
     AppRoutingModule,
     KeycloakAngularModule
   ],
