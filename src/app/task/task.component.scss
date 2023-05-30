@@ -37,11 +37,11 @@ input {
   color: rgb(187, 187, 187);
 }
 
-.addSubtask, .addSubtask:before, .addSubtask:after, .deleteAim, .deleteAim:before, .deleteAim:after, .changeText, .doneButton:before, .subTasksCounter {
+.addSubtask,.deleteAim, .changeText, .subTasksCounter {
   position: absolute;
 }
 
-.addSubtask:before, .addSubtask:after, .deleteAim:before, .deleteAim:after, .subTasksCounter {
+.subTasksCounter {
   width: 12px;
   height: 12px;
 }
@@ -54,7 +54,6 @@ input {
 }
 
 .doneButton {
-  padding: 15px 0 0 5px;
   margin-right: 5px;
 }
 
@@ -75,27 +74,13 @@ input {
   padding-bottom: 5px;
 }
 
+.addSubtask, .deleteAim {
+  color: grey;
+}
+
 .deleteAim {
   left: 95%;
   padding-right: 11px;
-}
-
-.addSubtask:before, .addSubtask:after, .deleteAim:before, .deleteAim:after {
-  content: '';
-  height: 1px;
-  background: grey;
-}
-
-.addSubtask:before {
-  transform: rotate(90deg);
-}
-
-.deleteAim:before, .doneButton:before {
-  transform: rotate(45deg);
-}
-
-.deleteAim:after {
-  transform: rotate(-45deg);
 }
 
 .addSubtask:hover, .changeText:hover, .deleteAim:hover {
@@ -104,32 +89,21 @@ input {
   border: 1px solid rgb(187, 187, 187);
 }
 
-.doneButton::before {
-  content: '';
-  display: block;
-  border-color: #009933;
-  border-style: solid;
-  border-width: 0 0.2em 0.15em 0;
-  height: 0.7em;
-  width: 0.35em;
-  margin-top: -1em;
+.doneButton {
+  color: #009933;
 }
 
-.unpressedDoneButton::before {
-  border-color: rgb(187, 187, 187);
+.unpressedDoneButton {
+  color: rgb(187, 187, 187);
 }
 
-.doneButton:hover:before {
-  border-color: white;
+.doneButton:hover {
+  color: white;
 }
 
 .doneButton:hover {
   background-color: #009933;
   border: 1px solid #009933;
-}
-
-.addSubtask:hover:before, .addSubtask:hover:after, .deleteAim:hover:before, .deleteAim:hover:after {
-  background-color: white;
 }
 
 .addSubtask:active, .changeText:active, .deleteAim:active {

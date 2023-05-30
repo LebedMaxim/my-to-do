@@ -6,7 +6,7 @@
     <div class="start-container">
       <input type="text" class="start" placeholder="What needs to be done?"
              (keyup.enter)="addArrElem(start)" #start>
-      <button class="startButton" (click)="addArrElem(start)">Add</button>
+      <button class="startButton" (click)="addArrElem(start)"><i class="bi bi-plus-lg"></i>Add</button>
     </div>
     <ul class="tasks">
       <app-task *ngFor="let iterTask of tasks; index as idx"
@@ -34,8 +34,8 @@
         </div>
       </div>
       <div>
-        <button class="clear-completed" (click)="clearCompleted()">✖ Clear completed</button>
-        <button class="clear-completed" (click)="clearLocalStorage()">✖ Restart app</button>
+        <button class="clear-completed" (click)="clearCompleted()"><i class="bi bi-x-lg"></i> Clear completed</button>
+        <button class="clear-completed" (click)="clearLocalStorage()"><i class="bi bi-x-lg"></i> Restart app</button>
       </div>
     </footer>
   </div>

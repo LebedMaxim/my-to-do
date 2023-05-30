@@ -39,7 +39,7 @@ input {
   font-size: 20px;
 }
 
-.start, .start::placeholder, footer, footer * {
+.start, .start::placeholder, footer {
   color: rgb(187, 187, 187);
 }
 
@@ -102,8 +102,8 @@ button.deleteAim {
 }
 
 .startButton {
-  padding-left: 30px;
   padding-right: 3px;
+  width: 80px;
 }
 
 .logout {
@@ -118,21 +118,6 @@ button.deleteAim {
 .logout {
 
   background-color: grey;
-}
-
-.startButton:before, .startButton:after {
-  position: absolute;
-  content: '';
-  border: 1px solid white;
-  height: 1em;
-}
-
-.startButton:before, .startButton:after {
-  right: 50px;
-}
-
-.startButton:after {
-  transform: rotate(90deg);
 }
 
 .sort {
@@ -230,4 +215,3 @@ footer * {
     width: 100%;
   }
 }
-

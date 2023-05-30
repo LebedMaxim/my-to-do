@@ -2,7 +2,7 @@
     *ngIf="detectSorting(sorting)">
   <button class="doneButton"
           [ngClass]="{unpressedDoneButton: !task.done}"
-          (click)="isDone()"></button>
+          (click)="isDone()"><i class="bi bi-check-lg"></i></button>
   <input (click)="isShownSubtasks=!isShownSubtasks"
          [readonly]="readonly" type="text" class="change"
          [(ngModel)]="task.text"
@@ -10,9 +10,9 @@
          (focusout)="finishEditing()"
          (keyup.enter)="finishEditing()" #input>
   <span class="subTasksCounter" *ngIf="subTasksCounter()">{{subTasksCounter()}}</span>
-  <button class="addSubtask" (click)="addSubTask()"></button>
-  <button class="changeText" (click)="changeText(input)">🖊</button>
-  <button class="deleteAim" (click)="deleteAim()"></button>
+  <button class="addSubtask" (click)="addSubTask()"><i class="bi bi-plus-lg"></i></button>
+  <button class="changeText" (click)="changeText(input)"><i class="bi bi-pen"></i></button>
+  <button class="deleteAim" (click)="deleteAim()"><i class="bi bi-x-lg"></i></button>
 </li>
 <app-subtask *ngFor="let iter of task.subTasks; index as idy"
              [subtask]=iter [sorting]="sorting"
