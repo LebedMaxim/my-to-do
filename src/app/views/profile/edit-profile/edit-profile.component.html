@@ -1,12 +1,14 @@
-<p>Hi, {{user}}!
-  <button class="logout" (click)="logout()">Logout</button></p>
+<p class="logout">Hi, {{user}}!
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
+</p>
 <section class="wrapper">
-  <h1>To-do list</h1>
+  <h1>TODO list</h1>
   <div class="cover">
     <div class="start-container">
       <input type="text" class="start" placeholder="What needs to be done?"
              (keyup.enter)="addArrElem(start)" #start>
-      <button class="startButton" (click)="addArrElem(start)"><i class="bi bi-plus-lg"></i>Add</button>
+      <button type="button" class="btn btn-primary add" (click)="addArrElem(start)"><i class="bi bi-plus-lg"></i>Add
+      </button>
     </div>
     <ul class="tasks">
       <app-task *ngFor="let iterTask of tasks; index as idx"
@@ -16,26 +18,22 @@
     </ul>
     <footer class="footer">
       <span class="items-left">{{allTasksCounter()}} left (with {{allSubtasksCounter()}})</span>
-      <div [formGroup]="form">
-        <div class="sort">
-          <input type="radio" id="all" name="sort"
-                 formControlName="sort" value="All">
-          <label for="all">All</label>
-        </div>
-        <div class="sort">
-          <input type="radio" id="active" name="sort"
-                 formControlName="sort" value="Active">
-          <label for="active">Active</label>
-        </div>
-        <div class="sort">
-          <input type="radio" id="completed" name="sort"
-                 formControlName="sort" value="Completed">
-          <label for="completed">Completed</label>
-        </div>
+      <div [formGroup]="form" class="btn-group btn-group-toggle" data-toggle="buttons">
+        <input type="radio" class="btn-check" formControlName="sort" value="All" id="all" autocomplete="off" checked>
+        <label class="btn btn-outline-primary btn-sm" for="all">All</label>
+        <input type="radio" class="btn-check" formControlName="sort" value="Active" id="active" autocomplete="off">
+        <label class="btn btn-outline-primary btn-sm" for="active">Active</label>
+        <input type="radio" class="btn-check" formControlName="sort" value="Completed" id="completed"
+               autocomplete="off">
+        <label class="btn btn-outline-primary btn-sm" for="completed">Completed</label>
       </div>
       <div>
-        <button class="clear-completed" (click)="clearCompleted()"><i class="bi bi-x-lg"></i> Clear completed</button>
-        <button class="clear-completed" (click)="clearLocalStorage()"><i class="bi bi-x-lg"></i> Restart app</button>
+        <button class="btn btn-outline-primary btn-sm" (click)="clearCompleted()"><i class="bi bi-x-lg"></i> Clear
+          completed
+        </button>
+        <button class="btn btn-outline-primary btn-sm" style="margin-left: 3px;" (click)="clearLocalStorage()"><i
+                class="bi bi-x-lg"></i> Restart app
+        </button>
       </div>
     </footer>
   </div>

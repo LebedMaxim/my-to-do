@@ -1,15 +1,3 @@
-button {
-  border: none;
-  outline: none;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  color: #fff;
-  padding: 0;
-  background-color: white;
-}
-
 input {
   border: 0;
   outline: 0;
@@ -67,78 +55,11 @@ input {
   width: 100%;
 }
 
-button.deleteAim, .deleteAim:before, .deleteAim:after {
-  position: absolute;
-  width: 11px;
-}
-
-button.deleteAim {
-  cursor: pointer;
-  top: 8px;
-  left: 95%;
-  height: 11px;
-  padding-right: 11px;
-}
-
-.deleteAim:before, .deleteAim:after {
-  content: '';
-  height: 1px;
-  background: grey;
-}
-
-.deleteAim:before {
-  transform: rotate(45deg);
-}
-
-.deleteAim:after {
-  transform: rotate(-45deg);
-}
-
-.startButton, .logout {
-  position: relative;
-  color: white;
-  padding-top: 3px;
-  padding-bottom: 3px;
-}
-
-.startButton {
-  padding-right: 3px;
-  width: 80px;
-}
-
-.logout {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.startButton {
-  background-color: #0093ff;
-}
-
-.logout {
-
-  background-color: grey;
-}
-
-.sort {
-  display: inline-block;
-}
-
-.sort input[type=radio] {
-  display: none;
-}
-
-.sort label, button.clear-completed {
-  color: #0093ff;
-  border: 1px solid #0093ff;
-
-}
-
-.sort label, .clear-completed, .startButton, .cover, .start, .logout {
+.cover, .start {
   border-radius: 7px;
 }
 
-.items-left, .clear-completed, .sort label, .startButton, .logout {
+.items-left, .add {
   margin: 3px;
 }
 
@@ -146,41 +67,8 @@ button.deleteAim {
   margin: 3px 3px 3px 45px;
 }
 
-.items-left, .clear-completed, .sort label {
+.items-left {
   padding: 0 5px;
-}
-
-.sort label {
-  display: inline-block;
-  cursor: pointer;
-}
-
-.sort input[type=radio]:checked + label {
-  color: white;
-  border-color: #0093ff;
-  background-color: #0093ff;
-}
-
-.sort label:hover, .clear-completed:hover, .sort input[type=radio]:checked + label:hover {
-  color: white;
-  border-color: #61b9ff;
-  background-color: #61b9ff;
-}
-
-.startButton:hover {
-  background-color: #61b9ff;
-}
-
-.logout:hover {
-  background-color: darkgrey;
-}
-
-.sort label:active, .clear-completed:active, .startButton:active {
-  background-color: #006dbd;
-}
-
-.logout:active {
-  background-color: dimgrey;
 }
 
 footer {
@@ -188,6 +76,7 @@ footer {
   flex: 100%;
   justify-content: space-between;
   border-top: 1px solid rgb(212, 212, 212);
+  margin: 3px;
 }
 
 footer * {
@@ -214,4 +103,13 @@ footer * {
   .wrapper {
     width: 100%;
   }
+}
+
+.logout {
+  color: white;
+  margin: 5px;
+}
+
+.add {
+  width: 8%;
 }

@@ -4,32 +4,7 @@ h1 {
   font-weight: bolder;
 }
 
-button {
-  border: none;
-  outline: none;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  color: #fff;
-  padding: 0;
-  background-color: white;
-}
-
-.login {
-  position: relative;
+.btn-secondary {
   display: block;
-  color: white;
-  padding: 3px 20px;
-  background-color: grey;
-  border-radius: 7px;
   margin: 3px auto;
-}
-
-.login:hover {
-  background-color: darkgrey;
-}
-
-.login:active {
-  background-color: dimgrey;
 }
