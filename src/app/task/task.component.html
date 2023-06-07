@@ -3,7 +3,7 @@
   <div class="input-group mb-3">
     <div class="input-group-text">
       <input class="form-check-input mt-0" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."
-             [ngClass]="{checked: task.done}"
+             [checked]="task.done"
              (click)="isDone()">
     </div>
     <input (click)="isShownSubtasks=!isShownSubtasks"

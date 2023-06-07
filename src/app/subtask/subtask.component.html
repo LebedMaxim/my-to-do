@@ -2,7 +2,7 @@
   <div class="input-group mb-3">
     <div class="input-group-text">
       <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."
-             [ngClass]="{checked: subtask.done}"
+             [checked]="subtask.done"
              (click)="isDone()">
     </div>
     <input [readonly]="readonly" type="text" class="form-control change"
