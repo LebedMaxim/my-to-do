@@ -23,7 +23,6 @@ input {
 }
 
 .start {
-  padding: 5px 0;
   margin: 3px 3px 3px 75px;
 }
 
@@ -35,7 +34,7 @@ input {
 
 .cover ul {
   overflow-y: scroll;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 230px);
   padding: 0;
   margin: 0;
   width: 100%;

@@ -17,8 +17,6 @@
     <button class="btn btn-outline-secondary" (click)="changeText(input)"><i class="bi bi-pen"></i></button>
     <button class="btn btn-outline-secondary" (click)="deleteAim()"><i class="bi bi-x-lg"></i></button>
   </div>
-
-
 </li>
 <app-subtask *ngFor="let iter of task.subTasks; index as idy"
              [subtask]=iter [sorting]="sorting"
