@@ -1,26 +1,10 @@
-button {
-  border: none;
-  outline: none;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  color: #fff;
-  padding: 0;
-  background-color: white;
-}
-
 input {
-  border: 0;
-  outline: 0;
-  font-size: 16px;
   cursor: context-menu;
   font-family: Roboto, sans-serif;
 }
 
 .change {
   color: grey;
-  width: 75%;
 }
 
 .task {
@@ -37,73 +21,13 @@ input {
   color: rgb(187, 187, 187);
 }
 
-.addSubtask,.deleteAim, .changeText, .subTasksCounter {
-  position: absolute;
+.form-check-input, .form-check-input:checked {
+  width: 22px;
+  height: 22px;
 }
 
-.subTasksCounter {
-  width: 12px;
-  height: 12px;
-}
-
-.addSubtask, .deleteAim, .changeText, .doneButton {
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-  border: 1px solid white;
-}
-
-.doneButton {
-  margin-right: 5px;
-}
-
-.subTasksCounter {
-  left: 80%;
-  font-size: 14px;
-}
-
-.addSubtask {
-  left: 85%;
-  padding-right: 11px;
-}
-
-.changeText {
-  left: 90%;
-  color: grey;
-  font-size: 13px;
-  padding-bottom: 5px;
-}
-
-.addSubtask, .deleteAim {
-  color: grey;
-}
-
-.deleteAim {
-  left: 95%;
-  padding-right: 11px;
-}
-
-.addSubtask:hover, .changeText:hover, .deleteAim:hover {
-  color: white;
-  background-color: rgb(187, 187, 187);
-  border: 1px solid rgb(187, 187, 187);
-}
-
-.doneButton {
-  color: #009933;
-}
-
-.unpressedDoneButton {
-  color: rgb(187, 187, 187);
-}
-
-.doneButton:hover {
-  color: white;
-}
-
-.doneButton:hover {
-  background-color: #009933;
-  border: 1px solid #009933;
+.form-check-input:checked {
+  background-color: green;
 }
 
 .addSubtask:active, .changeText:active, .deleteAim:active {
@@ -112,8 +36,4 @@ input {
 
 .isContainedSubTask:hover {
   color: black;
-}
-
-.doneButton, .addSubtask, .changeText, .deleteAim {
-  border-radius: 7px;
 }

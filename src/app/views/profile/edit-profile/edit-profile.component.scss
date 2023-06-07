@@ -14,20 +14,7 @@ input {
   font-weight: bolder;
 }
 
-.start-container, .start {
-  width: 100%;
-}
-
-.start-container {
-  display: flex;
-  border-bottom: 1px solid rgb(212, 212, 212);
-}
-
-.start-container * {
-  font-size: 20px;
-}
-
-.start, .start::placeholder, footer {
+.start, .start::placeholder, .counter {
   color: rgb(187, 187, 187);
 }
 
@@ -40,11 +27,9 @@ input {
 }
 
 .cover {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
   box-shadow: 0 1px 7px 1px grey;
   background: white;
+  border-radius: 7px;
 }
 
 .cover ul {
@@ -55,34 +40,16 @@ input {
   width: 100%;
 }
 
-.cover, .start {
-  border-radius: 7px;
-}
-
-.items-left, .add {
+.add {
   margin: 3px;
 }
 
 .start {
-  margin: 3px 3px 3px 45px;
-}
-
-.items-left {
-  padding: 0 5px;
+  margin: 3px 3px 3px 75px;
 }
 
 footer {
-  display: flex;
-  flex: 100%;
-  justify-content: space-between;
-  border-top: 1px solid rgb(212, 212, 212);
-  margin: 3px;
-}
-
-footer * {
-  font-size: 18px;
-  font-family: Roboto, sans-serif;
-  align-self: center;
+  padding: 3px;
 }
 
 .tasks {
@@ -108,8 +75,4 @@ footer * {
 .logout {
   color: white;
   margin: 5px;
-}
-
-.add {
-  width: 8%;
 }

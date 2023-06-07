@@ -1,18 +1,24 @@
 <li class="task"
     *ngIf="detectSorting(sorting)">
-  <button class="doneButton"
-          [ngClass]="{unpressedDoneButton: !task.done}"
-          (click)="isDone()"><i class="bi bi-check-lg"></i></button>
-  <input (click)="isShownSubtasks=!isShownSubtasks"
-         [readonly]="readonly" type="text" class="change"
-         [(ngModel)]="task.text"
-         [ngClass]="{done: task.done, isContainedSubTask: task.subTasks.length > 0}"
-         (focusout)="finishEditing()"
-         (keyup.enter)="finishEditing()" #input>
-  <span class="subTasksCounter" *ngIf="subTasksCounter()">{{subTasksCounter()}}</span>
-  <button class="addSubtask" (click)="addSubTask()"><i class="bi bi-plus-lg"></i></button>
-  <button class="changeText" (click)="changeText(input)"><i class="bi bi-pen"></i></button>
-  <button class="deleteAim" (click)="deleteAim()"><i class="bi bi-x-lg"></i></button>
+  <div class="input-group mb-3">
+    <div class="input-group-text">
+      <input class="form-check-input mt-0" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."
+             [ngClass]="{checked: task.done}"
+             (click)="isDone()">
+    </div>
+    <input (click)="isShownSubtasks=!isShownSubtasks"
+           [readonly]="readonly" type="text" class="form-control change"
+           [(ngModel)]="task.text"
+           [ngClass]="{done: task.done, isContainedSubTask: task.subTasks.length > 0}"
+           (focusout)="finishEditing()"
+           (keyup.enter)="finishEditing()" #input>
+    <span class="input-group-text" *ngIf="subTasksCounter()">{{subTasksCounter()}}</span>
+    <button class="btn btn-outline-secondary" (click)="addSubTask()"><i class="bi bi-plus-lg"></i></button>
+    <button class="btn btn-outline-secondary" (click)="changeText(input)"><i class="bi bi-pen"></i></button>
+    <button class="btn btn-outline-secondary" (click)="deleteAim()"><i class="bi bi-x-lg"></i></button>
+  </div>
+
+
 </li>
 <app-subtask *ngFor="let iter of task.subTasks; index as idy"
              [subtask]=iter [sorting]="sorting"
