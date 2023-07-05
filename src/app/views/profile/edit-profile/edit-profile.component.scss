@@ -56,15 +56,18 @@ input {
   }
 }
 
-
 @media screen and (max-width: 784px) {
   .cover ul {
-    max-height: calc(100vh - 330px);
+    max-height: calc(100vh - 345px);
+  }
+  footer * {
+    margin-top: 5px;
   }
 }
+
 @media screen and (max-width: 498px) {
   .cover ul {
-    max-height: calc(100vh - 360px);
+    max-height: calc(100vh - 390px);
   }
 }
 
