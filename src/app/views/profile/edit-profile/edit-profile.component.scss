@@ -50,9 +50,21 @@ input {
   background: rgb(212, 212, 212);
 }
 
-@media screen and (max-width: 1215px) {
+@media screen and (max-width: 1000px) {
   .wrapper {
     width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 784px) {
+  .cover ul {
+    max-height: calc(100vh - 330px);
+  }
+}
+@media screen and (max-width: 498px) {
+  .cover ul {
+    max-height: calc(100vh - 360px);
   }
 }
 
