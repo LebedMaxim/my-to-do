@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {Task} from '../app.component';
+import {Task} from '../views/profile/edit-profile/edit-profile.component';
 import {Output, EventEmitter} from '@angular/core';
 
 export interface Subtask {
@@ -10,7 +10,7 @@ export interface Subtask {
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css']
+  styleUrls: ['./task.component.scss']
 })
 
 export class TaskComponent implements OnInit {

@@ -1,0 +1,42 @@
+<p class="logout">Hi, {{user}}!
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
+</p>
+<section class="wrapper">
+  <h1>TODO list</h1>
+  <div class="cover">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control start" placeholder="What needs to be done?"
+             (keyup.enter)="addArrElem(start)" #start>
+      <button type="button" class="btn btn-primary btn-lg add" (click)="addArrElem(start)"><i class="bi bi-plus-lg"></i>Add
+      </button>
+    </div>
+    <ul class="tasks">
+      <app-task *ngFor="let iterTask of tasks; index as idx"
+                [task]="iterTask" [sorting]="form.value.sort"
+                (delItemEvent)="deleteAim(idx)"
+                (updateLocalStorageTasks)="updateLocalStorageTasks()"></app-task>
+    </ul>
+    <footer class="btn-toolbar justify-content-around" aria-label="Toolbar with button groups">
+      <div class="input-group">
+        <span class="input-group-text counter">{{allTasksCounter()}} left (with {{allSubtasksCounter()}})</span>
+      </div>
+      <div [formGroup]="form" class="btn-group btn-group-toggle" data-toggle="buttons" role="group">
+        <input type="radio" class="btn-check" formControlName="sort" value="All" id="all" autocomplete="off" checked>
+        <label class="btn btn-outline-primary" for="all">All</label>
+        <input type="radio" class="btn-check" formControlName="sort" value="Active" id="active" autocomplete="off">
+        <label class="btn btn-outline-primary" for="active">Active</label>
+        <input type="radio" class="btn-check" formControlName="sort" value="Completed" id="completed"
+               autocomplete="off">
+        <label class="btn btn-outline-primary" for="completed">Completed</label>
+      </div>
+      <div class="btn-group" role="group">
+        <button class="btn btn-outline-primary" (click)="clearCompleted()"><i class="bi bi-x-lg"></i> Clear
+          completed
+        </button>
+        <button class="btn btn-outline-primary" (click)="clearLocalStorage()"><i
+                class="bi bi-x-lg"></i> Restart app
+        </button>
+      </div>
+    </footer>
+  </div>
+</section>

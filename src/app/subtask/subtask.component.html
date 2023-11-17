@@ -1,12 +1,16 @@
 <li class="task subtask" *ngIf="detectSortingSubtasks(sorting)">
-  <button class="doneButton"
-          [ngClass]="{unpressedDoneButton: !subtask.done}"
-          (click)="isDone()"></button>
-  <input [readonly]="readonly" type="text" class="change"
-         [(ngModel)]="subtask.text"
-         [ngClass]="{done: subtask.done}"
-         (focusout)="finishEditing()"
-         (keyup.enter)="finishEditing()" #subInput>
-  <button class="deleteAim" (click)="deleteSubAim()"></button>
-  <button class="changeText" (click)="changeText(subInput)">🖊</button>
+  <div class="input-group mb-3">
+    <div class="input-group-text">
+      <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."
+             [checked]="subtask.done"
+             (click)="isDone()">
+    </div>
+    <input [readonly]="readonly" type="text" class="form-control change"
+           [(ngModel)]="subtask.text"
+           [ngClass]="{done: subtask.done}"
+           (focusout)="finishEditing()"
+           (keyup.enter)="finishEditing()" #subInput>
+    <button class="btn btn-outline-secondary" (click)="changeText(subInput)"><i class="bi bi-pen"></i></button>
+    <button class="btn btn-outline-secondary" (click)="deleteSubAim()"><i class="bi bi-x-lg"></i></button>
+  </div>
 </li>

@@ -1,0 +1,35 @@
+input {
+  cursor: context-menu;
+  font-family: Roboto, sans-serif;
+}
+
+.change {
+  color: grey;
+}
+
+.task {
+  list-style-type: none;
+  position: relative;
+  margin: 3px;
+  padding-left: 1.2em;
+  width: calc(100% - 2em);
+  cursor: default;
+}
+
+.done {
+  text-decoration: line-through black 1px;
+  color: rgb(187, 187, 187);
+}
+
+.form-check-input, .form-check-input:checked {
+  width: 22px;
+  height: 22px;
+}
+
+.form-check-input:checked {
+  background-color: green;
+}
+
+.isContainedSubTask:hover {
+  color: black;
+}
